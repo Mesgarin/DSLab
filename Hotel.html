@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1. Introduction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Hotel_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Hotel_files/libs/quarto-html/quarto.js"></script>
+<script src="Hotel_files/libs/quarto-html/popper.min.js"></script>
+<script src="Hotel_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Hotel_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Hotel_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Hotel_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Hotel_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Hotel_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Hotel_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">1. Introduction</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="data-set" class="level2">
+<h2 class="anchored" data-anchor-id="data-set">2. Data Set</h2>
+<section id="hotel-reservation-data-set" class="level3">
+<h3 class="anchored" data-anchor-id="hotel-reservation-data-set">2.1 Hotel Reservation Data set</h3>
+</section>
+</section>
+<section id="data-recognition" class="level2">
+<h2 class="anchored" data-anchor-id="data-recognition">3. Data Recognition</h2>
+<p>As the first step, we need to import the main libraries to start analysis.</p>
+<div id="import-libraries" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># importing main libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> ttest_ind</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_selection <span class="im">import</span> VarianceThreshold</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">"ignore"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="loading-data" class="level2">
+<h2 class="anchored" data-anchor-id="loading-data">3.1 Loading Data</h2>
+<p>To use data, we need to import them and read the data. In this case, our data is CSV files, and it is in the folder whose name is data.</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data\HotelReservations.csv'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df.head() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="data-import" class="cell-output cell-output-display" data-execution_count="20">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Booking_ID</th>
+<th data-quarto-table-cell-role="th">no_of_adults</th>
+<th data-quarto-table-cell-role="th">no_of_children</th>
+<th data-quarto-table-cell-role="th">no_of_weekend_nights</th>
+<th data-quarto-table-cell-role="th">no_of_week_nights</th>
+<th data-quarto-table-cell-role="th">type_of_meal_plan</th>
+<th data-quarto-table-cell-role="th">required_car_parking_space</th>
+<th data-quarto-table-cell-role="th">room_type_reserved</th>
+<th data-quarto-table-cell-role="th">lead_time</th>
+<th data-quarto-table-cell-role="th">arrival_year</th>
+<th data-quarto-table-cell-role="th">arrival_month</th>
+<th data-quarto-table-cell-role="th">arrival_date</th>
+<th data-quarto-table-cell-role="th">market_segment_type</th>
+<th data-quarto-table-cell-role="th">repeated_guest</th>
+<th data-quarto-table-cell-role="th">no_of_previous_cancellations</th>
+<th data-quarto-table-cell-role="th">no_of_previous_bookings_not_canceled</th>
+<th data-quarto-table-cell-role="th">avg_price_per_room</th>
+<th data-quarto-table-cell-role="th">no_of_special_requests</th>
+<th data-quarto-table-cell-role="th">booking_status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>INN00001</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>Meal Plan 1</td>
+<td>0</td>
+<td>Room_Type 1</td>
+<td>224</td>
+<td>2017</td>
+<td>10</td>
+<td>2</td>
+<td>Offline</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>65.00</td>
+<td>0</td>
+<td>Not_Canceled</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>INN00002</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>3</td>
+<td>Not Selected</td>
+<td>0</td>
+<td>Room_Type 1</td>
+<td>5</td>
+<td>2018</td>
+<td>11</td>
+<td>6</td>
+<td>Online</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>106.68</td>
+<td>1</td>
+<td>Not_Canceled</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>INN00003</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>1</td>
+<td>Meal Plan 1</td>
+<td>0</td>
+<td>Room_Type 1</td>
+<td>1</td>
+<td>2018</td>
+<td>2</td>
+<td>28</td>
+<td>Online</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>60.00</td>
+<td>0</td>
+<td>Canceled</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>INN00004</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>Meal Plan 1</td>
+<td>0</td>
+<td>Room_Type 1</td>
+<td>211</td>
+<td>2018</td>
+<td>5</td>
+<td>20</td>
+<td>Online</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100.00</td>
+<td>0</td>
+<td>Canceled</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>INN00005</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>Not Selected</td>
+<td>0</td>
+<td>Room_Type 1</td>
+<td>48</td>
+<td>2018</td>
+<td>4</td>
+<td>11</td>
+<td>Online</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>94.50</td>
+<td>0</td>
+<td>Canceled</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="show-how-many-rows-and-coloumn-in-data-set" class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>(36275, 19)</code></pre>
+</div>
+</div>
+<p>With this function, we check all culmns and their type.</p>
+<div id="get-informaion" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># getting data on dataset</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 36275 entries, 0 to 36274
+Data columns (total 19 columns):
+ #   Column                                Non-Null Count  Dtype  
+---  ------                                --------------  -----  
+ 0   Booking_ID                            36275 non-null  object 
+ 1   no_of_adults                          36275 non-null  int64  
+ 2   no_of_children                        36275 non-null  int64  
+ 3   no_of_weekend_nights                  36275 non-null  int64  
+ 4   no_of_week_nights                     36275 non-null  int64  
+ 5   type_of_meal_plan                     36275 non-null  object 
+ 6   required_car_parking_space            36275 non-null  int64  
+ 7   room_type_reserved                    36275 non-null  object 
+ 8   lead_time                             36275 non-null  int64  
+ 9   arrival_year                          36275 non-null  int64  
+ 10  arrival_month                         36275 non-null  int64  
+ 11  arrival_date                          36275 non-null  int64  
+ 12  market_segment_type                   36275 non-null  object 
+ 13  repeated_guest                        36275 non-null  int64  
+ 14  no_of_previous_cancellations          36275 non-null  int64  
+ 15  no_of_previous_bookings_not_canceled  36275 non-null  int64  
+ 16  avg_price_per_room                    36275 non-null  float64
+ 17  no_of_special_requests                36275 non-null  int64  
+ 18  booking_status                        36275 non-null  object 
+dtypes: float64(1), int64(13), object(5)
+memory usage: 5.3+ MB</code></pre>
+</div>
+</div>
+</section>
+<section id="data-pre-processing" class="level2">
+<h2 class="anchored" data-anchor-id="data-pre-processing">4. Data Pre-processing</h2>
+<p>This process is beneficial for several reasons. Reducing dimensionality, improving computational efficiency and enhancing model performance. In the pre-processing step, dimension reduction, outlier detection and missing value handling were conducted.</p>
+<section id="dropping-unnecessary-columns-and-rows" class="level3">
+<h3 class="anchored" data-anchor-id="dropping-unnecessary-columns-and-rows">4.1. Dropping unnecessary columns and rows:</h3>
+<p>Dropping unnecessary columns and rows is a data preprocessing step that involves removing specific columns or rows from a dataset that are deemed unnecessary for the analysis or modeling task at hand. We selected the best columns using the feature selection algorithm and we will obtain the accuracy of the model before and after that.</p>
+<section id="checking-missing-values" class="level4">
+<h4 class="anchored" data-anchor-id="checking-missing-values">4.2. Checking missing values</h4>
+<p>In most cases, we do not get complete datasets. They either have some missing values in the rows and columns. However, fortunately, we check whether the dataset has any missing values or not, and as you can see in the output of the block below, there is no missing value in this dataset</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows with null values</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df.info()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 36275 entries, 0 to 36274
+Data columns (total 19 columns):
+ #   Column                                Non-Null Count  Dtype  
+---  ------                                --------------  -----  
+ 0   Booking_ID                            36275 non-null  object 
+ 1   no_of_adults                          36275 non-null  int64  
+ 2   no_of_children                        36275 non-null  int64  
+ 3   no_of_weekend_nights                  36275 non-null  int64  
+ 4   no_of_week_nights                     36275 non-null  int64  
+ 5   type_of_meal_plan                     36275 non-null  object 
+ 6   required_car_parking_space            36275 non-null  int64  
+ 7   room_type_reserved                    36275 non-null  object 
+ 8   lead_time                             36275 non-null  int64  
+ 9   arrival_year                          36275 non-null  int64  
+ 10  arrival_month                         36275 non-null  int64  
+ 11  arrival_date                          36275 non-null  int64  
+ 12  market_segment_type                   36275 non-null  object 
+ 13  repeated_guest                        36275 non-null  int64  
+ 14  no_of_previous_cancellations          36275 non-null  int64  
+ 15  no_of_previous_bookings_not_canceled  36275 non-null  int64  
+ 16  avg_price_per_room                    36275 non-null  float64
+ 17  no_of_special_requests                36275 non-null  int64  
+ 18  booking_status                        36275 non-null  object 
+dtypes: float64(1), int64(13), object(5)
+memory usage: 5.3+ MB</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>(36275, 19)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking for missing values in the entire dataset</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>missing_values <span class="op">=</span> df.isnull().<span class="bu">sum</span>()</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing the result</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(missing_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Booking_ID                              0
+no_of_adults                            0
+no_of_children                          0
+no_of_weekend_nights                    0
+no_of_week_nights                       0
+type_of_meal_plan                       0
+required_car_parking_space              0
+room_type_reserved                      0
+lead_time                               0
+arrival_year                            0
+arrival_month                           0
+arrival_date                            0
+market_segment_type                     0
+repeated_guest                          0
+no_of_previous_cancellations            0
+no_of_previous_bookings_not_canceled    0
+avg_price_per_room                      0
+no_of_special_requests                  0
+booking_status                          0
+dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="checking-for-garbage-values" class="level4">
+<h4 class="anchored" data-anchor-id="checking-for-garbage-values">4.3 Checking for garbage values</h4>
+<p>Garbage value is generally a term meaning that the value in a variable which means nothing. By checking the statistical information of the data, some variables have negative values, and some have 0 values which are not compatible with the definition (corresponding to the dataset). The detail of these values is given in the following tables: *** Negative Values and Ziro for deleting *** Using this code, we check the data for minus and zero values if they are not compatible by the meaning they have.</p>
+<p>::: {.cell execution_count=25} <code>{.python .cell-code}  # get name the columns  df.columns</code></p>
+<p>::: {.cell-output .cell-output-display execution_count=25} <code>Index(['Booking_ID', 'no_of_adults', 'no_of_children', 'no_of_weekend_nights',         'no_of_week_nights', 'type_of_meal_plan', 'required_car_parking_space',         'room_type_reserved', 'lead_time', 'arrival_year', 'arrival_month',         'arrival_date', 'market_segment_type', 'repeated_guest',         'no_of_previous_cancellations', 'no_of_previous_bookings_not_canceled',         'avg_price_per_room', 'no_of_special_requests', 'booking_status'],        dtype='object')</code> ::: :::</p>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking the negative values of no_of_adults</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'no_of_adults'</span>].value_counts()</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#df['no_of_children'].value_counts()</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#df['no_of_weekend_nights'].value_counts()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>no_of_adults
+2    26108
+1     7695
+3     2317
+0      139
+4       16
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<p>As shown above, there are no undefined values in each variables. Therefore, we omit no cases.</p>
+</section>
+</section>
+<section id="checking-the-distribution-of-each-variable" class="level3">
+<h3 class="anchored" data-anchor-id="checking-the-distribution-of-each-variable">4.4 Checking the distribution of each variable</h3>
+<p>Checking the distribution of each variable involves examining the spread and pattern of values within individual columns or features in the dataset. Understanding the distribution helps you gain insights into the central tendencies, variability, and shape of the data. This is crucial for making informed decisions during data analysis and modeling. Common statistical measures used to describe the distribution include mean, median, and standard deviation. .</p>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check the distribution for each column</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df.describe().T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">min</th>
+<th data-quarto-table-cell-role="th">25%</th>
+<th data-quarto-table-cell-role="th">50%</th>
+<th data-quarto-table-cell-role="th">75%</th>
+<th data-quarto-table-cell-role="th">max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">no_of_adults</td>
+<td>36275.0</td>
+<td>1.844962</td>
+<td>0.518715</td>
+<td>0.0</td>
+<td>2.0</td>
+<td>2.00</td>
+<td>2.0</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">no_of_children</td>
+<td>36275.0</td>
+<td>0.105279</td>
+<td>0.402648</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.00</td>
+<td>0.0</td>
+<td>10.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">no_of_weekend_nights</td>
+<td>36275.0</td>
+<td>0.810724</td>
+<td>0.870644</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1.00</td>
+<td>2.0</td>
+<td>7.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">no_of_week_nights</td>
+<td>36275.0</td>
+<td>2.204300</td>
+<td>1.410905</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>2.00</td>
+<td>3.0</td>
+<td>17.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">required_car_parking_space</td>
+<td>36275.0</td>
+<td>0.030986</td>
+<td>0.173281</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.00</td>
+<td>0.0</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">lead_time</td>
+<td>36275.0</td>
+<td>85.232557</td>
+<td>85.930817</td>
+<td>0.0</td>
+<td>17.0</td>
+<td>57.00</td>
+<td>126.0</td>
+<td>443.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">arrival_year</td>
+<td>36275.0</td>
+<td>2017.820427</td>
+<td>0.383836</td>
+<td>2017.0</td>
+<td>2018.0</td>
+<td>2018.00</td>
+<td>2018.0</td>
+<td>2018.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">arrival_month</td>
+<td>36275.0</td>
+<td>7.423653</td>
+<td>3.069894</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>8.00</td>
+<td>10.0</td>
+<td>12.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">arrival_date</td>
+<td>36275.0</td>
+<td>15.596995</td>
+<td>8.740447</td>
+<td>1.0</td>
+<td>8.0</td>
+<td>16.00</td>
+<td>23.0</td>
+<td>31.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">repeated_guest</td>
+<td>36275.0</td>
+<td>0.025637</td>
+<td>0.158053</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.00</td>
+<td>0.0</td>
+<td>1.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">no_of_previous_cancellations</td>
+<td>36275.0</td>
+<td>0.023349</td>
+<td>0.368331</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.00</td>
+<td>0.0</td>
+<td>13.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">no_of_previous_bookings_not_canceled</td>
+<td>36275.0</td>
+<td>0.153411</td>
+<td>1.754171</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.00</td>
+<td>0.0</td>
+<td>58.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">avg_price_per_room</td>
+<td>36275.0</td>
+<td>103.423539</td>
+<td>35.089424</td>
+<td>0.0</td>
+<td>80.3</td>
+<td>99.45</td>
+<td>120.0</td>
+<td>540.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">no_of_special_requests</td>
+<td>36275.0</td>
+<td>0.619655</td>
+<td>0.786236</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.00</td>
+<td>1.0</td>
+<td>5.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Using this code, the most important statistical information of each numeric predictiors are calculated.</p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_numeric <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>np.number)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_numeric.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>(36275, 14)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># finding zero variance variables</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>selector_vr<span class="op">=</span> VarianceThreshold(threshold<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#selector_vr.fit_transform(df_numeric)</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#selector_vr.get_support(indices=True)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If there are variables with standard deviation near the zero , we can delete it .</p>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df.head()</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>Index(['Booking_ID', 'no_of_adults', 'no_of_children', 'no_of_weekend_nights',
+       'no_of_week_nights', 'type_of_meal_plan', 'required_car_parking_space',
+       'room_type_reserved', 'lead_time', 'arrival_year', 'arrival_month',
+       'arrival_date', 'market_segment_type', 'repeated_guest',
+       'no_of_previous_cancellations', 'no_of_previous_bookings_not_canceled',
+       'avg_price_per_room', 'no_of_special_requests', 'booking_status'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<p>Now, we check the categorical variables and their categories to show the frequency of each values.</p>
+<p>Histograms are useful for analyzing the frequency distribution of different values for each variable. In each histogram, the horizontal axis represents the variable values, and the vertical axis indicates the frequency or the number of times each value appears in the data. The height of each column reflects the frequency or the number of samples with a specific value in that interval.</p>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the columns you want to include in the analysis</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>selected_columns <span class="op">=</span> [<span class="st">'Booking_ID'</span>, <span class="st">'no_of_adults'</span>, <span class="st">'no_of_children'</span>, <span class="st">'no_of_weekend_nights'</span>,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>       <span class="st">'no_of_week_nights'</span>, <span class="st">'type_of_meal_plan'</span>, <span class="st">'required_car_parking_space'</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>       <span class="st">'room_type_reserved'</span>, <span class="st">'lead_time'</span>, <span class="st">'arrival_year'</span>, <span class="st">'arrival_month'</span>,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>       <span class="st">'arrival_date'</span>, <span class="st">'market_segment_type'</span>, <span class="st">'repeated_guest'</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>       <span class="st">'no_of_previous_cancellations'</span>, <span class="st">'no_of_previous_bookings_not_canceled'</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>       <span class="st">'avg_price_per_room'</span>, <span class="st">'no_of_special_requests'</span>, <span class="st">'booking_status'</span>]</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame containing only the selected columns</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>selected_df <span class="op">=</span> df[selected_columns]</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot histograms for each variable</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>selected_df.hist(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Histograms of Selected Variables'</span>)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Hotel_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Displaying some statistics about categorical data</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df.describe(include<span class="op">=</span><span class="st">'object'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Booking_ID</th>
+<th data-quarto-table-cell-role="th">type_of_meal_plan</th>
+<th data-quarto-table-cell-role="th">room_type_reserved</th>
+<th data-quarto-table-cell-role="th">market_segment_type</th>
+<th data-quarto-table-cell-role="th">booking_status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>36275</td>
+<td>36275</td>
+<td>36275</td>
+<td>36275</td>
+<td>36275</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">unique</td>
+<td>36275</td>
+<td>4</td>
+<td>7</td>
+<td>5</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">top</td>
+<td>INN00001</td>
+<td>Meal Plan 1</td>
+<td>Room_Type 1</td>
+<td>Online</td>
+<td>Not_Canceled</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">freq</td>
+<td>1</td>
+<td>27835</td>
+<td>28130</td>
+<td>23214</td>
+<td>24390</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="data-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="data-transformation">4.5 Data Transformation</h3>
+<section id="transforming-the-categorical-variables" class="level4">
+<h4 class="anchored" data-anchor-id="transforming-the-categorical-variables">4.5.1 Transforming the categorical variables</h4>
+<p>In this step, we numerized object variables . As it mentioned earlier, booking_status and target has two object:Not_Canceled , Canceled . For efficient use in the models, we convert Canceled to 1 and Not_Canceled to 0. If we have a column that is object or if we have Boolean, we can convert them to integer. In this stage I use the new data frame for own data with own selected column for better decision in the following steps.</p>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">no_of_adults</th>
+<th data-quarto-table-cell-role="th">no_of_children</th>
+<th data-quarto-table-cell-role="th">no_of_weekend_nights</th>
+<th data-quarto-table-cell-role="th">no_of_week_nights</th>
+<th data-quarto-table-cell-role="th">required_car_parking_space</th>
+<th data-quarto-table-cell-role="th">lead_time</th>
+<th data-quarto-table-cell-role="th">arrival_year</th>
+<th data-quarto-table-cell-role="th">arrival_month</th>
+<th data-quarto-table-cell-role="th">arrival_date</th>
+<th data-quarto-table-cell-role="th">repeated_guest</th>
+<th data-quarto-table-cell-role="th">no_of_previous_cancellations</th>
+<th data-quarto-table-cell-role="th">no_of_previous_bookings_not_canceled</th>
+<th data-quarto-table-cell-role="th">avg_price_per_room</th>
+<th data-quarto-table-cell-role="th">no_of_special_requests</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>36275.000000</td>
+<td>36275.000000</td>
+<td>36275.000000</td>
+<td>36275.000000</td>
+<td>36275.000000</td>
+<td>36275.000000</td>
+<td>36275.000000</td>
+<td>36275.000000</td>
+<td>36275.000000</td>
+<td>36275.000000</td>
+<td>36275.000000</td>
+<td>36275.000000</td>
+<td>36275.000000</td>
+<td>36275.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>1.844962</td>
+<td>0.105279</td>
+<td>0.810724</td>
+<td>2.204300</td>
+<td>0.030986</td>
+<td>85.232557</td>
+<td>2017.820427</td>
+<td>7.423653</td>
+<td>15.596995</td>
+<td>0.025637</td>
+<td>0.023349</td>
+<td>0.153411</td>
+<td>103.423539</td>
+<td>0.619655</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>0.518715</td>
+<td>0.402648</td>
+<td>0.870644</td>
+<td>1.410905</td>
+<td>0.173281</td>
+<td>85.930817</td>
+<td>0.383836</td>
+<td>3.069894</td>
+<td>8.740447</td>
+<td>0.158053</td>
+<td>0.368331</td>
+<td>1.754171</td>
+<td>35.089424</td>
+<td>0.786236</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>2017.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>2.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+<td>0.000000</td>
+<td>17.000000</td>
+<td>2018.000000</td>
+<td>5.000000</td>
+<td>8.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>80.300000</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>2.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+<td>2.000000</td>
+<td>0.000000</td>
+<td>57.000000</td>
+<td>2018.000000</td>
+<td>8.000000</td>
+<td>16.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>99.450000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>2.000000</td>
+<td>0.000000</td>
+<td>2.000000</td>
+<td>3.000000</td>
+<td>0.000000</td>
+<td>126.000000</td>
+<td>2018.000000</td>
+<td>10.000000</td>
+<td>23.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>120.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>4.000000</td>
+<td>10.000000</td>
+<td>7.000000</td>
+<td>17.000000</td>
+<td>1.000000</td>
+<td>443.000000</td>
+<td>2018.000000</td>
+<td>12.000000</td>
+<td>31.000000</td>
+<td>1.000000</td>
+<td>13.000000</td>
+<td>58.000000</td>
+<td>540.000000</td>
+<td>5.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#using Map Function</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df.copy()</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordinal Encoding for booking_status: 1 for 'Canceled', 0 for 'Not_Canceled'</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>ordinal_map <span class="op">=</span> {<span class="st">'Canceled'</span>: <span class="dv">1</span>, <span class="st">'Not_Canceled'</span>: <span class="dv">0</span>}</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'booking_status'</span>] <span class="op">=</span> df2[<span class="st">'booking_status'</span>].<span class="bu">map</span>(ordinal_map)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'booking_status'</span>] <span class="op">=</span> df2[<span class="st">'booking_status'</span>].astype(<span class="bu">int</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We check again the structure of the dataframe.</p>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#df2.info()</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#df2.head()</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#df2.shape</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>unique_values <span class="op">=</span> df2[<span class="st">'type_of_meal_plan'</span>].unique()</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unique_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['Meal Plan 1' 'Not Selected' 'Meal Plan 2' 'Meal Plan 3']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get unique values in the column</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>unique_values <span class="op">=</span> df2[<span class="st">'booking_status'</span>].unique()</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unique_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0 1]</code></pre>
+</div>
+</div>
+</section>
+<section id="normalization-standardization-scaling" class="level4">
+<h4 class="anchored" data-anchor-id="normalization-standardization-scaling">4.5.2 Normalization, standardization, scaling</h4>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

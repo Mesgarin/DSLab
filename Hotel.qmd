@@ -1,0 +1,213 @@
+---
+title: "Hotel Reservation"
+author: 
+  - Nastaran  Mesgari
+
+
+abstract: " "
+
+format: 
+  html:
+    code-fold: False
+    standalone: true
+    embed-resources: true
+    toc: true
+---
+## 1. Introduction
+
+
+## 2. Data Set
+### 2.1	Hotel Reservation Data set
+
+
+## 3. Data Recognition
+As the first step, we need to import the main libraries to start analysis.
+ 
+```{python}
+#| label: import-libraries
+# importing main libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import matplotlib.pyplot as plt
+from scipy.stats import ttest_ind
+import warnings
+from sklearn.feature_selection import VarianceThreshold
+warnings.filterwarnings("ignore")
+```
+
+## 3.1 Loading Data
+To use data, we need to import them and read the data. In this case, our data is CSV files, and it is in the folder whose name is data.
+```{python}
+#| label: data-import
+df = pd.read_csv('data\HotelReservations.csv')
+df.head() 
+```
+
+```{python}
+#| label: show how many rows and coloumn in data set 
+df.shape
+```
+
+With this function, we check all culmns and their type. 
+```{python}
+#| label: Get informaion
+# getting data on dataset
+df.info()
+```
+
+## 4. Data Pre-processing
+This process is beneficial for several reasons. Reducing dimensionality, improving computational efficiency and enhancing model performance.
+In the pre-processing step, dimension reduction, outlier detection and missing value handling were conducted.
+
+### 4.1. Dropping unnecessary columns and rows:
+Dropping unnecessary columns and rows is a data preprocessing step that involves removing specific columns or rows from a dataset that are deemed unnecessary for the analysis or modeling task at hand. 
+ We selected the best columns using the feature selection algorithm and we will obtain the accuracy of the model before and after that.
+
+
+#### 4.2. Checking missing values
+In most cases, we do not get complete datasets. They either have some missing values in the rows and columns. However, fortunately, we check whether the dataset has any missing values or not, and as you can see in the output of the block below, there is no missing value in this dataset
+
+```{python}
+# Drop rows with null values
+df = df.dropna()
+df.info()
+df.shape
+```
+
+```{python}
+# Checking for missing values in the entire dataset
+missing_values = df.isnull().sum()
+# Printing the result
+print(missing_values)
+```
+
+
+#### 	4.3 Checking for garbage values
+Garbage value is generally a term meaning that the value in a variable which means nothing.
+By checking the statistical information of the data, some variables have negative values, and some have 0 values which are not compatible with the definition (corresponding to the dataset).
+The detail of these values is given in the following tables:
+ *** Negative Values and Ziro for deleting ***
+ Using this code, we check the data for minus and zero values if they are not compatible by the meaning they have.
+ ```{python}
+ # get name the columns
+ df.columns
+ ```
+```{python}
+# Checking the negative values of no_of_adults
+df['no_of_adults'].value_counts()
+#df['no_of_children'].value_counts()
+#df['no_of_weekend_nights'].value_counts()
+```
+
+
+As shown above, there are no undefined values in each variables. Therefore, we omit no cases.
+
+
+
+### 4.4 Checking the distribution of each variable 
+Checking the distribution of each variable involves examining the spread and pattern of values within individual columns or features in the dataset. Understanding the distribution helps you gain insights into the central tendencies, variability, and shape of the data. This is crucial for making informed decisions during data analysis and modeling. Common statistical measures used to describe the distribution include mean, median, and standard deviation.
+.
+
+```{python}
+# check the distribution for each column
+df.describe().T
+```
+
+Using this code, the most important statistical information of each numeric predictiors are calculated.
+```{python}
+df_numeric = df.select_dtypes(include=np.number)
+df_numeric.shape
+```
+
+```{python}
+
+# finding zero variance variables
+selector_vr= VarianceThreshold(threshold=0)
+#selector_vr.fit_transform(df_numeric)
+#selector_vr.get_support(indices=True)
+```
+
+If there are variables with standard deviation near the zero , we can delete it . 
+
+```{python}
+df.head()
+df.columns
+```
+
+Now, we check the categorical variables and their categories to show the frequency of each values.
+
+Histograms are useful for analyzing the frequency distribution of different values for each variable. In each histogram, the horizontal axis represents the variable values, and the vertical axis indicates the frequency or the number of times each value appears in the data. The height of each column reflects the frequency or the number of samples with a specific value in that interval.
+
+```{python}
+# Specify the columns you want to include in the analysis
+selected_columns = ['Booking_ID', 'no_of_adults', 'no_of_children', 'no_of_weekend_nights',
+       'no_of_week_nights', 'type_of_meal_plan', 'required_car_parking_space',
+       'room_type_reserved', 'lead_time', 'arrival_year', 'arrival_month',
+       'arrival_date', 'market_segment_type', 'repeated_guest',
+       'no_of_previous_cancellations', 'no_of_previous_bookings_not_canceled',
+       'avg_price_per_room', 'no_of_special_requests', 'booking_status']
+
+# Create a DataFrame containing only the selected columns
+selected_df = df[selected_columns]
+
+# Plot histograms for each variable
+selected_df.hist(figsize=(10, 8))
+plt.suptitle('Histograms of Selected Variables')
+plt.show()
+```
+
+
+
+```{python}
+# Displaying some statistics about categorical data
+df.describe(include='object')
+```
+
+### 4.5 Data Transformation
+
+#### 4.5.1 Transforming the categorical variables
+In this step, we numerized object variables . As it mentioned earlier, booking_status and target has two object:Not_Canceled
+, Canceled
+. For efficient use in the models, we convert Canceled
+ to 1 and Not_Canceled to 0.
+If we have a column that is object or if we have Boolean, we can convert them to integer. In this stage I use the new data frame for own data with own selected column for better decision in the following steps.
+```{python} 
+df.describe()
+```
+
+
+```{python}
+#using Map Function
+df2 = df.copy()
+
+# Ordinal Encoding for booking_status: 1 for 'Canceled', 0 for 'Not_Canceled'
+ordinal_map = {'Canceled': 1, 'Not_Canceled': 0}
+df2['booking_status'] = df2['booking_status'].map(ordinal_map)
+df2['booking_status'] = df2['booking_status'].astype(int)
+
+```
+
+
+
+We check again the structure of the dataframe.
+```{python}
+#df2.info()
+#df2.head()
+#df2.shape
+unique_values = df2['type_of_meal_plan'].unique()
+print(unique_values)
+```
+
+```{python}
+# Get unique values in the column
+unique_values = df2['booking_status'].unique()
+print(unique_values)
+
+```
+
+
+#### 4.5.2 Normalization, standardization, scaling
+
+
