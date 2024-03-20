@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-recognition" class="level2">
 <h2 class="anchored" data-anchor-id="data-recognition">3. Data Recognition</h2>
 <p>As the first step, we need to import the main libraries to start analysis.</p>
-<div id="import-libraries" class="cell" data-execution_count="19">
+<div id="import-libraries" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># importing main libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -122,10 +122,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="loading-data" class="level2">
 <h2 class="anchored" data-anchor-id="loading-data">3.1 Loading Data</h2>
 <p>To use data, we need to import them and read the data. In this case, our data is CSV files, and it is in the folder whose name is data.</p>
-<div class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data\HotelReservations.csv'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df.head() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="data-import" class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dfHotel <span class="op">=</span> pd.read_csv(<span class="st">'data\HotelReservations.csv'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dfHotel.head() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="data-import" class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -271,16 +271,341 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="show-how-many-rows-and-coloumn-in-data-set" class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dfCVD <span class="op">=</span> pd.read_csv(<span class="st">'data\CVD_cleaned.csv'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dfCVD.head() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="data-import3" class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">General_Health</th>
+<th data-quarto-table-cell-role="th">Checkup</th>
+<th data-quarto-table-cell-role="th">Exercise</th>
+<th data-quarto-table-cell-role="th">Heart_Disease</th>
+<th data-quarto-table-cell-role="th">Skin_Cancer</th>
+<th data-quarto-table-cell-role="th">Other_Cancer</th>
+<th data-quarto-table-cell-role="th">Depression</th>
+<th data-quarto-table-cell-role="th">Diabetes</th>
+<th data-quarto-table-cell-role="th">Arthritis</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age_Category</th>
+<th data-quarto-table-cell-role="th">Height_(cm)</th>
+<th data-quarto-table-cell-role="th">Weight_(kg)</th>
+<th data-quarto-table-cell-role="th">BMI</th>
+<th data-quarto-table-cell-role="th">Smoking_History</th>
+<th data-quarto-table-cell-role="th">Alcohol_Consumption</th>
+<th data-quarto-table-cell-role="th">Fruit_Consumption</th>
+<th data-quarto-table-cell-role="th">Green_Vegetables_Consumption</th>
+<th data-quarto-table-cell-role="th">FriedPotato_Consumption</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Poor</td>
+<td>Within the past 2 years</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Female</td>
+<td>70-74</td>
+<td>150.0</td>
+<td>32.66</td>
+<td>14.54</td>
+<td>Yes</td>
+<td>0.0</td>
+<td>30.0</td>
+<td>16.0</td>
+<td>12.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Very Good</td>
+<td>Within the past year</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Female</td>
+<td>70-74</td>
+<td>165.0</td>
+<td>77.11</td>
+<td>28.29</td>
+<td>No</td>
+<td>0.0</td>
+<td>30.0</td>
+<td>0.0</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Very Good</td>
+<td>Within the past year</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Female</td>
+<td>60-64</td>
+<td>163.0</td>
+<td>88.45</td>
+<td>33.47</td>
+<td>No</td>
+<td>4.0</td>
+<td>12.0</td>
+<td>3.0</td>
+<td>16.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Poor</td>
+<td>Within the past year</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Male</td>
+<td>75-79</td>
+<td>180.0</td>
+<td>93.44</td>
+<td>28.73</td>
+<td>No</td>
+<td>0.0</td>
+<td>30.0</td>
+<td>30.0</td>
+<td>8.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Good</td>
+<td>Within the past year</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Male</td>
+<td>80+</td>
+<td>191.0</td>
+<td>88.45</td>
+<td>24.37</td>
+<td>Yes</td>
+<td>0.0</td>
+<td>8.0</td>
+<td>4.0</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dfweatherAUS <span class="op">=</span> pd.read_csv(<span class="st">'data\weatherAUS.csv'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dfweatherAUS.head() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="data-import2" class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Location</th>
+<th data-quarto-table-cell-role="th">MinTemp</th>
+<th data-quarto-table-cell-role="th">MaxTemp</th>
+<th data-quarto-table-cell-role="th">Rainfall</th>
+<th data-quarto-table-cell-role="th">Evaporation</th>
+<th data-quarto-table-cell-role="th">Sunshine</th>
+<th data-quarto-table-cell-role="th">WindGustDir</th>
+<th data-quarto-table-cell-role="th">WindGustSpeed</th>
+<th data-quarto-table-cell-role="th">WindDir9am</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">Humidity9am</th>
+<th data-quarto-table-cell-role="th">Humidity3pm</th>
+<th data-quarto-table-cell-role="th">Pressure9am</th>
+<th data-quarto-table-cell-role="th">Pressure3pm</th>
+<th data-quarto-table-cell-role="th">Cloud9am</th>
+<th data-quarto-table-cell-role="th">Cloud3pm</th>
+<th data-quarto-table-cell-role="th">Temp9am</th>
+<th data-quarto-table-cell-role="th">Temp3pm</th>
+<th data-quarto-table-cell-role="th">RainToday</th>
+<th data-quarto-table-cell-role="th">RainTomorrow</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2008-12-01</td>
+<td>Albury</td>
+<td>13.4</td>
+<td>22.9</td>
+<td>0.6</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>W</td>
+<td>44.0</td>
+<td>W</td>
+<td>...</td>
+<td>71.0</td>
+<td>22.0</td>
+<td>1007.7</td>
+<td>1007.1</td>
+<td>8.0</td>
+<td>NaN</td>
+<td>16.9</td>
+<td>21.8</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2008-12-02</td>
+<td>Albury</td>
+<td>7.4</td>
+<td>25.1</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>WNW</td>
+<td>44.0</td>
+<td>NNW</td>
+<td>...</td>
+<td>44.0</td>
+<td>25.0</td>
+<td>1010.6</td>
+<td>1007.8</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>17.2</td>
+<td>24.3</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2008-12-03</td>
+<td>Albury</td>
+<td>12.9</td>
+<td>25.7</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>WSW</td>
+<td>46.0</td>
+<td>W</td>
+<td>...</td>
+<td>38.0</td>
+<td>30.0</td>
+<td>1007.6</td>
+<td>1008.7</td>
+<td>NaN</td>
+<td>2.0</td>
+<td>21.0</td>
+<td>23.2</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2008-12-04</td>
+<td>Albury</td>
+<td>9.2</td>
+<td>28.0</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NE</td>
+<td>24.0</td>
+<td>SE</td>
+<td>...</td>
+<td>45.0</td>
+<td>16.0</td>
+<td>1017.6</td>
+<td>1012.8</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>18.1</td>
+<td>26.5</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2008-12-05</td>
+<td>Albury</td>
+<td>17.5</td>
+<td>32.3</td>
+<td>1.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>W</td>
+<td>41.0</td>
+<td>ENE</td>
+<td>...</td>
+<td>82.0</td>
+<td>33.0</td>
+<td>1010.8</td>
+<td>1006.0</td>
+<td>7.0</td>
+<td>8.0</td>
+<td>17.8</td>
+<td>29.7</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 23 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dfHotel.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="show-how-many-rows-and-coloumn-in-data-set1" class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>(36275, 19)</code></pre>
 </div>
 </div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dfCVD.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="show-how-many-rows-and-coloumn-in-data-set2" class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>(308854, 19)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dfweatherAUS.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="show-how-many-rows-and-coloumn-in-data-set3" class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>(145460, 23)</code></pre>
+</div>
+</div>
 <p>With this function, we check all culmns and their type.</p>
-<div id="get-informaion" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># getting data on dataset</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="get-informaion" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># getting data on dataset</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dfHotel.info()</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>dfCVD.info()</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>dfweatherAUS.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 36275 entries, 0 to 36274
@@ -307,7 +632,63 @@ Data columns (total 19 columns):
  17  no_of_special_requests                36275 non-null  int64  
  18  booking_status                        36275 non-null  object 
 dtypes: float64(1), int64(13), object(5)
-memory usage: 5.3+ MB</code></pre>
+memory usage: 5.3+ MB
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 308854 entries, 0 to 308853
+Data columns (total 19 columns):
+ #   Column                        Non-Null Count   Dtype  
+---  ------                        --------------   -----  
+ 0   General_Health                308854 non-null  object 
+ 1   Checkup                       308854 non-null  object 
+ 2   Exercise                      308854 non-null  object 
+ 3   Heart_Disease                 308854 non-null  object 
+ 4   Skin_Cancer                   308854 non-null  object 
+ 5   Other_Cancer                  308854 non-null  object 
+ 6   Depression                    308854 non-null  object 
+ 7   Diabetes                      308854 non-null  object 
+ 8   Arthritis                     308854 non-null  object 
+ 9   Sex                           308854 non-null  object 
+ 10  Age_Category                  308854 non-null  object 
+ 11  Height_(cm)                   308854 non-null  float64
+ 12  Weight_(kg)                   308854 non-null  float64
+ 13  BMI                           308854 non-null  float64
+ 14  Smoking_History               308854 non-null  object 
+ 15  Alcohol_Consumption           308854 non-null  float64
+ 16  Fruit_Consumption             308854 non-null  float64
+ 17  Green_Vegetables_Consumption  308854 non-null  float64
+ 18  FriedPotato_Consumption       308854 non-null  float64
+dtypes: float64(7), object(12)
+memory usage: 44.8+ MB
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 145460 entries, 0 to 145459
+Data columns (total 23 columns):
+ #   Column         Non-Null Count   Dtype  
+---  ------         --------------   -----  
+ 0   Date           145460 non-null  object 
+ 1   Location       145460 non-null  object 
+ 2   MinTemp        143975 non-null  float64
+ 3   MaxTemp        144199 non-null  float64
+ 4   Rainfall       142199 non-null  float64
+ 5   Evaporation    82670 non-null   float64
+ 6   Sunshine       75625 non-null   float64
+ 7   WindGustDir    135134 non-null  object 
+ 8   WindGustSpeed  135197 non-null  float64
+ 9   WindDir9am     134894 non-null  object 
+ 10  WindDir3pm     141232 non-null  object 
+ 11  WindSpeed9am   143693 non-null  float64
+ 12  WindSpeed3pm   142398 non-null  float64
+ 13  Humidity9am    142806 non-null  float64
+ 14  Humidity3pm    140953 non-null  float64
+ 15  Pressure9am    130395 non-null  float64
+ 16  Pressure3pm    130432 non-null  float64
+ 17  Cloud9am       89572 non-null   float64
+ 18  Cloud3pm       86102 non-null   float64
+ 19  Temp9am        143693 non-null  float64
+ 20  Temp3pm        141851 non-null  float64
+ 21  RainToday      142199 non-null  object 
+ 22  RainTomorrow   142193 non-null  object 
+dtypes: float64(16), object(7)
+memory usage: 25.5+ MB</code></pre>
 </div>
 </div>
 </section>
@@ -320,11 +701,21 @@ memory usage: 5.3+ MB</code></pre>
 <section id="checking-missing-values" class="level4">
 <h4 class="anchored" data-anchor-id="checking-missing-values">4.2. Checking missing values</h4>
 <p>In most cases, we do not get complete datasets. They either have some missing values in the rows and columns. However, fortunately, we check whether the dataset has any missing values or not, and as you can see in the output of the block below, there is no missing value in this dataset</p>
-<div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows with null values</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df.info()</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows with null values</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>dfHotel <span class="op">=</span>dfHotel.dropna()</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>dfCVD <span class="op">=</span>dfCVD.dropna()</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>dfweatherAUS <span class="op">=</span>dfweatherAUS.dropna()</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>dfHotel.info()</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>dfCVD.info()</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>dfweatherAUS.info()</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> [dfweatherAUS, dfCVD, dfHotel]</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, df <span class="kw">in</span> <span class="bu">enumerate</span>(dataframes, start<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    shape <span class="op">=</span> df.shape</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Shape of df</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 36275 entries, 0 to 36274
@@ -351,19 +742,125 @@ Data columns (total 19 columns):
  17  no_of_special_requests                36275 non-null  int64  
  18  booking_status                        36275 non-null  object 
 dtypes: float64(1), int64(13), object(5)
-memory usage: 5.3+ MB</code></pre>
+memory usage: 5.3+ MB
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 308854 entries, 0 to 308853
+Data columns (total 19 columns):
+ #   Column                        Non-Null Count   Dtype  
+---  ------                        --------------   -----  
+ 0   General_Health                308854 non-null  object 
+ 1   Checkup                       308854 non-null  object 
+ 2   Exercise                      308854 non-null  object 
+ 3   Heart_Disease                 308854 non-null  object 
+ 4   Skin_Cancer                   308854 non-null  object 
+ 5   Other_Cancer                  308854 non-null  object 
+ 6   Depression                    308854 non-null  object 
+ 7   Diabetes                      308854 non-null  object 
+ 8   Arthritis                     308854 non-null  object 
+ 9   Sex                           308854 non-null  object 
+ 10  Age_Category                  308854 non-null  object 
+ 11  Height_(cm)                   308854 non-null  float64
+ 12  Weight_(kg)                   308854 non-null  float64
+ 13  BMI                           308854 non-null  float64
+ 14  Smoking_History               308854 non-null  object 
+ 15  Alcohol_Consumption           308854 non-null  float64
+ 16  Fruit_Consumption             308854 non-null  float64
+ 17  Green_Vegetables_Consumption  308854 non-null  float64
+ 18  FriedPotato_Consumption       308854 non-null  float64
+dtypes: float64(7), object(12)
+memory usage: 44.8+ MB
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+Index: 56420 entries, 6049 to 142302
+Data columns (total 23 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   Date           56420 non-null  object 
+ 1   Location       56420 non-null  object 
+ 2   MinTemp        56420 non-null  float64
+ 3   MaxTemp        56420 non-null  float64
+ 4   Rainfall       56420 non-null  float64
+ 5   Evaporation    56420 non-null  float64
+ 6   Sunshine       56420 non-null  float64
+ 7   WindGustDir    56420 non-null  object 
+ 8   WindGustSpeed  56420 non-null  float64
+ 9   WindDir9am     56420 non-null  object 
+ 10  WindDir3pm     56420 non-null  object 
+ 11  WindSpeed9am   56420 non-null  float64
+ 12  WindSpeed3pm   56420 non-null  float64
+ 13  Humidity9am    56420 non-null  float64
+ 14  Humidity3pm    56420 non-null  float64
+ 15  Pressure9am    56420 non-null  float64
+ 16  Pressure3pm    56420 non-null  float64
+ 17  Cloud9am       56420 non-null  float64
+ 18  Cloud3pm       56420 non-null  float64
+ 19  Temp9am        56420 non-null  float64
+ 20  Temp3pm        56420 non-null  float64
+ 21  RainToday      56420 non-null  object 
+ 22  RainTomorrow   56420 non-null  object 
+dtypes: float64(16), object(7)
+memory usage: 10.3+ MB
+Shape of df1: (56420, 23)
+Shape of df2: (308854, 19)
+Shape of df3: (36275, 19)</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="23">
-<pre><code>(36275, 19)</code></pre>
 </div>
-</div>
-<div class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking for missing values in the entire dataset</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>missing_values <span class="op">=</span> df.isnull().<span class="bu">sum</span>()</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing the result</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(missing_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking for missing values in the entire dataset</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> [dfweatherAUS, dfCVD, dfHotel]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, df <span class="kw">in</span> <span class="bu">enumerate</span>(dataframes, start<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    missing_values <span class="op">=</span> df.isnull().<span class="bu">sum</span>()</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Missing values in df</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">:"</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(missing_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Booking_ID                              0
+<pre><code>Missing values in df1:
+Date             0
+Location         0
+MinTemp          0
+MaxTemp          0
+Rainfall         0
+Evaporation      0
+Sunshine         0
+WindGustDir      0
+WindGustSpeed    0
+WindDir9am       0
+WindDir3pm       0
+WindSpeed9am     0
+WindSpeed3pm     0
+Humidity9am      0
+Humidity3pm      0
+Pressure9am      0
+Pressure3pm      0
+Cloud9am         0
+Cloud3pm         0
+Temp9am          0
+Temp3pm          0
+RainToday        0
+RainTomorrow     0
+dtype: int64
+Missing values in df2:
+General_Health                  0
+Checkup                         0
+Exercise                        0
+Heart_Disease                   0
+Skin_Cancer                     0
+Other_Cancer                    0
+Depression                      0
+Diabetes                        0
+Arthritis                       0
+Sex                             0
+Age_Category                    0
+Height_(cm)                     0
+Weight_(kg)                     0
+BMI                             0
+Smoking_History                 0
+Alcohol_Consumption             0
+Fruit_Consumption               0
+Green_Vegetables_Consumption    0
+FriedPotato_Consumption         0
+dtype: int64
+Missing values in df3:
+Booking_ID                              0
 no_of_adults                            0
 no_of_children                          0
 no_of_weekend_nights                    0
@@ -389,20 +886,867 @@ dtype: int64</code></pre>
 <section id="checking-for-garbage-values" class="level4">
 <h4 class="anchored" data-anchor-id="checking-for-garbage-values">4.3 Checking for garbage values</h4>
 <p>Garbage value is generally a term meaning that the value in a variable which means nothing. By checking the statistical information of the data, some variables have negative values, and some have 0 values which are not compatible with the definition (corresponding to the dataset). The detail of these values is given in the following tables: *** Negative Values and Ziro for deleting *** Using this code, we check the data for minus and zero values if they are not compatible by the meaning they have.</p>
-<p>::: {.cell execution_count=25} <code>{.python .cell-code}  # get name the columns  df.columns</code></p>
-<p>::: {.cell-output .cell-output-display execution_count=25} <code>Index(['Booking_ID', 'no_of_adults', 'no_of_children', 'no_of_weekend_nights',         'no_of_week_nights', 'type_of_meal_plan', 'required_car_parking_space',         'room_type_reserved', 'lead_time', 'arrival_year', 'arrival_month',         'arrival_date', 'market_segment_type', 'repeated_guest',         'no_of_previous_cancellations', 'no_of_previous_bookings_not_canceled',         'avg_price_per_room', 'no_of_special_requests', 'booking_status'],        dtype='object')</code> ::: :::</p>
-<div class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking the negative values of no_of_adults</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'no_of_adults'</span>].value_counts()</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#df['no_of_children'].value_counts()</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#df['no_of_weekend_nights'].value_counts()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
-<pre><code>no_of_adults
+<p>::: {.cell execution_count=11} <code>{.python .cell-code}  # get name the columns  df.columns</code></p>
+<p>::: {.cell-output .cell-output-display execution_count=11} <code>Index(['Booking_ID', 'no_of_adults', 'no_of_children', 'no_of_weekend_nights',         'no_of_week_nights', 'type_of_meal_plan', 'required_car_parking_space',         'room_type_reserved', 'lead_time', 'arrival_year', 'arrival_month',         'arrival_date', 'market_segment_type', 'repeated_guest',         'no_of_previous_cancellations', 'no_of_previous_bookings_not_canceled',         'avg_price_per_room', 'no_of_special_requests', 'booking_status'],        dtype='object')</code> ::: :::</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking the negative values of no_of_adults</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> [dfweatherAUS, dfCVD, dfHotel]</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, df <span class="kw">in</span> <span class="bu">enumerate</span>(dataframes, start<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"DataFrame </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">:"</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> column <span class="kw">in</span> df.columns:</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Value counts for column '</span><span class="sc">{</span>column<span class="sc">}</span><span class="ss">':"</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(df[column].value_counts())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>DataFrame 1:
+Value counts for column 'Date':
+Date
+2010-11-16    25
+2009-03-09    25
+2009-03-28    25
+2009-03-26    25
+2010-05-17    25
+              ..
+2008-03-26     1
+2008-03-25     1
+2008-03-24     1
+2008-03-23     1
+2008-01-02     1
+Name: count, Length: 3416, dtype: int64
+Value counts for column 'Location':
+Location
+Darwin              3062
+Perth               3025
+Brisbane            2953
+MelbourneAirport    2929
+PerthAirport        2913
+SydneyAirport       2870
+Watsonia            2730
+Mildura             2594
+MountGambier        2465
+NorfolkIsland       2464
+Cairns              2444
+Townsville          2419
+WaggaWagga          2416
+AliceSprings        2223
+Nuriootpa           2008
+Hobart              1939
+Moree               1913
+Melbourne           1898
+Portland            1863
+Woomera             1734
+Sydney              1690
+Sale                1678
+CoffsHarbour        1380
+Williamtown         1198
+Canberra            1078
+Cobar                534
+Name: count, dtype: int64
+Value counts for column 'MinTemp':
+MinTemp
+ 13.0    349
+ 9.6     342
+ 8.5     333
+ 9.7     331
+ 12.5    331
+        ... 
+ 31.4      1
+-5.3       1
+-3.8       1
+-5.8       1
+-6.7       1
+Name: count, Length: 348, dtype: int64
+Value counts for column 'MaxTemp':
+MaxTemp
+19.6    303
+18.2    300
+19.4    300
+20.1    298
+23.5    294
+       ... 
+45.4      1
+47.3      1
+45.8      1
+6.3       1
+7.5       1
+Name: count, Length: 395, dtype: int64
+Value counts for column 'Rainfall':
+Rainfall
+0.0      36709
+0.2       3009
+0.4       1593
+0.6       1087
+0.8        834
+         ...  
+29.9         1
+182.6        1
+81.8         1
+89.2         1
+70.8         1
+Name: count, Length: 410, dtype: int64
+Value counts for column 'Evaporation':
+Evaporation
+4.0     2263
+8.0     1745
+2.2     1393
+3.4     1365
+2.4     1353
+        ... 
+37.4       1
+33.6       1
+28.6       1
+48.8       1
+25.0       1
+Name: count, Length: 259, dtype: int64
+Value counts for column 'Sunshine':
+Sunshine
+0.0     1658
+11.0     879
+10.8     878
+10.7     878
+10.5     842
+        ... 
+14.0      10
+14.1       3
+14.3       3
+14.2       2
+14.5       1
+Name: count, Length: 145, dtype: int64
+Value counts for column 'WindGustDir':
+WindGustDir
+E      4516
+N      4210
+W      4161
+SW     4052
+ENE    4028
+SE     3930
+SSW    3898
+WSW    3791
+S      3636
+ESE    3312
+SSE    3295
+NE     3185
+WNW    2989
+NW     2612
+NNE    2516
+NNW    2289
+Name: count, dtype: int64
+Value counts for column 'WindGustSpeed':
+WindGustSpeed
+35.0     3965
+39.0     3884
+37.0     3727
+31.0     3582
+33.0     3580
+         ... 
+113.0       2
+122.0       1
+9.0         1
+124.0       1
+111.0       1
+Name: count, Length: 61, dtype: int64
+Value counts for column 'WindDir9am':
+WindDir9am
+N      4967
+E      4456
+ENE    3932
+SSE    3893
+SE     3880
+W      3707
+S      3421
+ESE    3400
+NE     3390
+SW     3356
+NNE    3267
+WSW    3037
+NNW    3016
+SSW    2926
+WNW    2918
+NW     2854
+Name: count, dtype: int64
+Value counts for column 'WindDir3pm':
+WindDir3pm
+SE     4153
+S      4109
+SW     4012
+ENE    3946
+W      3922
+WSW    3856
+E      3753
+ESE    3703
+N      3626
+SSW    3485
+NE     3390
+SSE    3332
+WNW    3200
+NNW    2766
+NW     2727
+NNE    2440
+Name: count, dtype: int64
+Value counts for column 'WindSpeed9am':
+WindSpeed9am
+13.0    5911
+9.0     5631
+11.0    5000
+17.0    4992
+15.0    4702
+7.0     4274
+19.0    3694
+20.0    3639
+6.0     3342
+24.0    2515
+22.0    2359
+4.0     1737
+26.0    1688
+28.0    1661
+2.0     1182
+30.0    1080
+31.0     970
+33.0     501
+35.0     464
+37.0     253
+39.0     196
+41.0     148
+43.0     143
+44.0      82
+46.0      63
+50.0      43
+48.0      41
+52.0      37
+54.0      23
+56.0      17
+57.0      14
+61.0       6
+63.0       5
+59.0       3
+67.0       2
+65.0       2
+Name: count, dtype: int64
+Value counts for column 'WindSpeed3pm':
+WindSpeed3pm
+17.0    5187
+20.0    4940
+13.0    4785
+15.0    4530
+19.0    4339
+24.0    4124
+22.0    3653
+11.0    3548
+9.0     3375
+28.0    3089
+26.0    2885
+30.0    2185
+7.0     1850
+31.0    1837
+33.0    1183
+6.0     1085
+35.0    1022
+37.0     584
+39.0     499
+4.0      458
+41.0     282
+43.0     242
+2.0      234
+44.0     127
+46.0     120
+50.0      81
+48.0      76
+52.0      30
+54.0      21
+56.0      14
+59.0       9
+65.0       8
+57.0       7
+61.0       6
+76.0       2
+63.0       2
+67.0       1
+Name: count, dtype: int64
+Value counts for column 'Humidity9am':
+Humidity9am
+68.0    1314
+67.0    1300
+69.0    1288
+65.0    1286
+64.0    1277
+        ... 
+4.0       14
+3.0        7
+2.0        6
+1.0        3
+0.0        1
+Name: count, Length: 101, dtype: int64
+Value counts for column 'Humidity3pm':
+Humidity3pm
+52.0     1250
+54.0     1202
+55.0     1181
+51.0     1172
+53.0     1170
+         ... 
+100.0      50
+3.0        41
+2.0        29
+1.0        13
+0.0         3
+Name: count, Length: 101, dtype: int64
+Value counts for column 'Pressure9am':
+Pressure9am
+1016.4    382
+1015.9    361
+1017.7    350
+1018.2    349
+1018.0    347
+         ... 
+1039.6      1
+1039.5      1
+1037.6      1
+1040.2      1
+983.9       1
+Name: count, Length: 504, dtype: int64
+Value counts for column 'Pressure3pm':
+Pressure3pm
+1014.8    351
+1013.5    351
+1015.3    347
+1013.4    346
+1012.2    341
+         ... 
+987.6       1
+986.2       1
+987.0       1
+989.4       1
+983.3       1
+Name: count, Length: 507, dtype: int64
+Value counts for column 'Cloud9am':
+Cloud9am
+7.0    14394
+1.0    10677
+8.0     5487
+6.0     5403
+0.0     5262
+2.0     4378
+3.0     4221
+5.0     3757
+4.0     2841
+Name: count, dtype: int64
+Value counts for column 'Cloud3pm':
+Cloud3pm
+7.0    13809
+1.0    10162
+6.0     6287
+2.0     4961
+3.0     4864
+8.0     4724
+5.0     4672
+0.0     3470
+4.0     3470
+9.0        1
+Name: count, dtype: int64
+Value counts for column 'Temp9am':
+Temp9am
+ 16.6    343
+ 16.7    333
+ 14.8    330
+ 14.7    329
+ 17.0    328
+        ... 
+ 0.0       1
+-0.2       1
+-0.5       1
+ 0.6       1
+ 38.0      1
+Name: count, Length: 383, dtype: int64
+Value counts for column 'Temp3pm':
+Temp3pm
+18.4    329
+18.7    318
+19.3    315
+18.5    310
+21.6    306
+       ... 
+4.3       1
+45.4      1
+44.7      1
+43.9      1
+43.2      1
+Name: count, Length: 393, dtype: int64
+Value counts for column 'RainToday':
+RainToday
+No     43958
+Yes    12462
+Name: count, dtype: int64
+Value counts for column 'RainTomorrow':
+RainTomorrow
+No     43993
+Yes    12427
+Name: count, dtype: int64
+DataFrame 2:
+Value counts for column 'General_Health':
+General_Health
+Very Good    110395
+Good          95364
+Excellent     55954
+Fair          35810
+Poor          11331
+Name: count, dtype: int64
+Value counts for column 'Checkup':
+Checkup
+Within the past year       239371
+Within the past 2 years     37213
+Within the past 5 years     17442
+5 or more years ago         13421
+Never                        1407
+Name: count, dtype: int64
+Value counts for column 'Exercise':
+Exercise
+Yes    239381
+No      69473
+Name: count, dtype: int64
+Value counts for column 'Heart_Disease':
+Heart_Disease
+No     283883
+Yes     24971
+Name: count, dtype: int64
+Value counts for column 'Skin_Cancer':
+Skin_Cancer
+No     278860
+Yes     29994
+Name: count, dtype: int64
+Value counts for column 'Other_Cancer':
+Other_Cancer
+No     278976
+Yes     29878
+Name: count, dtype: int64
+Value counts for column 'Depression':
+Depression
+No     246953
+Yes     61901
+Name: count, dtype: int64
+Value counts for column 'Diabetes':
+Diabetes
+No                                            259141
+Yes                                            40171
+No, pre-diabetes or borderline diabetes         6896
+Yes, but female told only during pregnancy      2646
+Name: count, dtype: int64
+Value counts for column 'Arthritis':
+Arthritis
+No     207783
+Yes    101071
+Name: count, dtype: int64
+Value counts for column 'Sex':
+Sex
+Female    160196
+Male      148658
+Name: count, dtype: int64
+Value counts for column 'Age_Category':
+Age_Category
+65-69    33434
+60-64    32418
+70-74    31103
+55-59    28054
+50-54    25097
+80+      22271
+40-44    21595
+45-49    20968
+75-79    20705
+35-39    20606
+18-24    18681
+30-34    18428
+25-29    15494
+Name: count, dtype: int64
+Value counts for column 'Height_(cm)':
+Height_(cm)
+168.0    27119
+163.0    25804
+170.0    24739
+178.0    24673
+173.0    23591
+         ...  
+110.0        1
+241.0        1
+115.0        1
+195.0        1
+108.0        1
+Name: count, Length: 99, dtype: int64
+Value counts for column 'Weight_(kg)':
+Weight_(kg)
+90.72     16614
+81.65     15104
+72.57     13263
+68.04     13240
+77.11     12216
+          ...  
+273.52        1
+176.00        1
+212.73        1
+190.96        1
+42.00         1
+Name: count, Length: 525, dtype: int64
+Value counts for column 'BMI':
+BMI
+26.63    3340
+27.46    2658
+24.41    2596
+27.44    2567
+27.12    2259
+         ... 
+63.92       1
+50.59       1
+58.63       1
+75.37       1
+56.32       1
+Name: count, Length: 3654, dtype: int64
+Value counts for column 'Smoking_History':
+Smoking_History
+No     183590
+Yes    125264
+Name: count, dtype: int64
+Value counts for column 'Alcohol_Consumption':
+Alcohol_Consumption
+0.0     140262
+1.0      24983
+4.0      23367
+2.0      19740
+8.0      13438
+30.0     11976
+3.0      11479
+5.0       9622
+20.0      9372
+12.0      8825
+10.0      7881
+15.0      6178
+28.0      5935
+16.0      3602
+6.0       3518
+25.0      2670
+7.0       2572
+24.0      1253
+14.0       486
+29.0       309
+9.0        239
+27.0       205
+21.0       197
+18.0       196
+22.0       152
+26.0       126
+17.0        78
+13.0        76
+23.0        65
+11.0        41
+19.0        11
+Name: count, dtype: int64
+Value counts for column 'Fruit_Consumption':
+Fruit_Consumption
+30.0     90273
+60.0     48127
+12.0     30259
+8.0      22279
+20.0     17476
+         ...  
+41.0         1
+116.0        1
+54.0         1
+62.0         1
+85.0         1
+Name: count, Length: 77, dtype: int64
+Value counts for column 'Green_Vegetables_Consumption':
+Green_Vegetables_Consumption
+30.0     51162
+12.0     41979
+8.0      40329
+4.0      37709
+16.0     23338
+         ...  
+34.0         1
+93.0         1
+128.0        1
+37.0         1
+53.0         1
+Name: count, Length: 75, dtype: int64
+Value counts for column 'FriedPotato_Consumption':
+FriedPotato_Consumption
+4.0     67833
+0.0     44233
+8.0     38366
+2.0     36095
+1.0     29876
+        ...  
+49.0        1
+76.0        1
+34.0        1
+98.0        1
+97.0        1
+Name: count, Length: 69, dtype: int64
+DataFrame 3:
+Value counts for column 'Booking_ID':
+Booking_ID
+INN00001    1
+INN24187    1
+INN24181    1
+INN24182    1
+INN24183    1
+           ..
+INN12086    1
+INN12085    1
+INN12084    1
+INN12083    1
+INN36275    1
+Name: count, Length: 36275, dtype: int64
+Value counts for column 'no_of_adults':
+no_of_adults
 2    26108
 1     7695
 3     2317
 0      139
 4       16
+Name: count, dtype: int64
+Value counts for column 'no_of_children':
+no_of_children
+0     33577
+1      1618
+2      1058
+3        19
+9         2
+10        1
+Name: count, dtype: int64
+Value counts for column 'no_of_weekend_nights':
+no_of_weekend_nights
+0    16872
+1     9995
+2     9071
+3      153
+4      129
+5       34
+6       20
+7        1
+Name: count, dtype: int64
+Value counts for column 'no_of_week_nights':
+no_of_week_nights
+2     11444
+1      9488
+3      7839
+4      2990
+0      2387
+5      1614
+6       189
+7       113
+10       62
+8        62
+9        34
+11       17
+15       10
+12        9
+14        7
+13        5
+17        3
+16        2
+Name: count, dtype: int64
+Value counts for column 'type_of_meal_plan':
+type_of_meal_plan
+Meal Plan 1     27835
+Not Selected     5130
+Meal Plan 2      3305
+Meal Plan 3         5
+Name: count, dtype: int64
+Value counts for column 'required_car_parking_space':
+required_car_parking_space
+0    35151
+1     1124
+Name: count, dtype: int64
+Value counts for column 'room_type_reserved':
+room_type_reserved
+Room_Type 1    28130
+Room_Type 4     6057
+Room_Type 6      966
+Room_Type 2      692
+Room_Type 5      265
+Room_Type 7      158
+Room_Type 3        7
+Name: count, dtype: int64
+Value counts for column 'lead_time':
+lead_time
+0      1297
+1      1078
+2       643
+3       630
+4       628
+       ... 
+300       1
+353       1
+328       1
+352       1
+351       1
+Name: count, Length: 352, dtype: int64
+Value counts for column 'arrival_year':
+arrival_year
+2018    29761
+2017     6514
+Name: count, dtype: int64
+Value counts for column 'arrival_month':
+arrival_month
+10    5317
+9     4611
+8     3813
+6     3203
+12    3021
+11    2980
+7     2920
+4     2736
+5     2598
+3     2358
+2     1704
+1     1014
+Name: count, dtype: int64
+Value counts for column 'arrival_date':
+arrival_date
+13    1358
+17    1345
+2     1331
+4     1327
+19    1327
+16    1306
+20    1281
+15    1273
+6     1273
+18    1260
+14    1242
+30    1216
+12    1204
+8     1198
+29    1190
+21    1158
+5     1154
+26    1146
+25    1146
+1     1133
+9     1130
+28    1129
+7     1110
+24    1103
+11    1098
+3     1098
+10    1089
+27    1059
+22    1023
+23     990
+31     578
+Name: count, dtype: int64
+Value counts for column 'market_segment_type':
+market_segment_type
+Online           23214
+Offline          10528
+Corporate         2017
+Complementary      391
+Aviation           125
+Name: count, dtype: int64
+Value counts for column 'repeated_guest':
+repeated_guest
+0    35345
+1      930
+Name: count, dtype: int64
+Value counts for column 'no_of_previous_cancellations':
+no_of_previous_cancellations
+0     35937
+1       198
+2        46
+3        43
+11       25
+5        11
+4        10
+13        4
+6         1
+Name: count, dtype: int64
+Value counts for column 'no_of_previous_bookings_not_canceled':
+no_of_previous_bookings_not_canceled
+0     35463
+1       228
+2       112
+3        80
+4        65
+5        60
+6        36
+7        24
+8        23
+10       19
+9        19
+11       15
+12       12
+14        9
+15        8
+16        7
+13        7
+18        6
+20        6
+21        6
+17        6
+19        6
+22        6
+25        3
+27        3
+24        3
+23        3
+44        2
+29        2
+48        2
+28        2
+30        2
+32        2
+31        2
+26        2
+46        1
+55        1
+45        1
+57        1
+53        1
+54        1
+58        1
+41        1
+40        1
+43        1
+35        1
+50        1
+56        1
+33        1
+37        1
+42        1
+51        1
+38        1
+34        1
+39        1
+52        1
+49        1
+47        1
+36        1
+Name: count, dtype: int64
+Value counts for column 'avg_price_per_room':
+avg_price_per_room
+65.00     848
+75.00     826
+90.00     703
+95.00     669
+115.00    662
+         ... 
+212.42      1
+83.48       1
+70.42       1
+130.99      1
+167.80      1
+Name: count, Length: 3930, dtype: int64
+Value counts for column 'no_of_special_requests':
+no_of_special_requests
+0    19777
+1    11373
+2     4364
+3      675
+4       78
+5        8
+Name: count, dtype: int64
+Value counts for column 'booking_status':
+booking_status
+Not_Canceled    24390
+Canceled        11885
 Name: count, dtype: int64</code></pre>
 </div>
 </div>
@@ -412,208 +1756,256 @@ Name: count, dtype: int64</code></pre>
 <section id="checking-the-distribution-of-each-variable" class="level3">
 <h3 class="anchored" data-anchor-id="checking-the-distribution-of-each-variable">4.4 Checking the distribution of each variable</h3>
 <p>Checking the distribution of each variable involves examining the spread and pattern of values within individual columns or features in the dataset. Understanding the distribution helps you gain insights into the central tendencies, variability, and shape of the data. This is crucial for making informed decisions during data analysis and modeling. Common statistical measures used to describe the distribution include mean, median, and standard deviation. .</p>
-<div class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check the distribution for each column</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df.describe().T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
-<div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check the distribution for each column</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> {<span class="st">'dfweatherAUS'</span>: dfweatherAUS, <span class="st">'dfCVD'</span>: dfCVD, <span class="st">'dfHotel'</span>: dfHotel}</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, df <span class="kw">in</span> dataframes.items():</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"DataFrame </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">:"</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df.describe().T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>DataFrame dfweatherAUS:
+                 count         mean        std    min     25%     50%     75%  \
+MinTemp        56420.0    13.464770   6.416689   -6.7     8.6    13.2    18.4   
+MaxTemp        56420.0    24.219206   6.970676    4.1    18.7    23.9    29.7   
+Rainfall       56420.0     2.130397   7.014822    0.0     0.0     0.0     0.6   
+Evaporation    56420.0     5.503135   3.696282    0.0     2.8     5.0     7.4   
+Sunshine       56420.0     7.735626   3.758153    0.0     5.0     8.6    10.7   
+WindGustSpeed  56420.0    40.877366  13.335232    9.0    31.0    39.0    48.0   
+WindSpeed9am   56420.0    15.667228   8.317005    2.0     9.0    15.0    20.0   
+WindSpeed3pm   56420.0    19.786778   8.510180    2.0    13.0    19.0    26.0   
+Humidity9am    56420.0    65.874123  18.513289    0.0    55.0    67.0    79.0   
+Humidity3pm    56420.0    49.601985  20.197040    0.0    35.0    50.0    63.0   
+Pressure9am    56420.0  1017.239505   6.909357  980.5  1012.7  1017.2  1021.8   
+Pressure3pm    56420.0  1014.795580   6.870892  977.1  1010.1  1014.7  1019.4   
+Cloud9am       56420.0     4.241705   2.797162    0.0     1.0     5.0     7.0   
+Cloud3pm       56420.0     4.326515   2.647251    0.0     2.0     5.0     7.0   
+Temp9am        56420.0    18.204961   6.567991   -0.7    13.1    17.8    23.3   
+Temp3pm        56420.0    22.710333   6.836543    3.7    17.4    22.4    27.9   
 
+                  max  
+MinTemp          31.4  
+MaxTemp          48.1  
+Rainfall        206.2  
+Evaporation      81.2  
+Sunshine         14.5  
+WindGustSpeed   124.0  
+WindSpeed9am     67.0  
+WindSpeed3pm     76.0  
+Humidity9am     100.0  
+Humidity3pm     100.0  
+Pressure9am    1040.4  
+Pressure3pm    1038.9  
+Cloud9am          8.0  
+Cloud3pm          9.0  
+Temp9am          39.4  
+Temp3pm          46.1  
+DataFrame dfCVD:
+                                 count        mean        std    min     25%  \
+Height_(cm)                   308854.0  170.615249  10.658026  91.00  163.00   
+Weight_(kg)                   308854.0   83.588655  21.343210  24.95   68.04   
+BMI                           308854.0   28.626211   6.522323  12.02   24.21   
+Alcohol_Consumption           308854.0    5.096366   8.199763   0.00    0.00   
+Fruit_Consumption             308854.0   29.835200  24.875735   0.00   12.00   
+Green_Vegetables_Consumption  308854.0   15.110441  14.926238   0.00    4.00   
+FriedPotato_Consumption       308854.0    6.296616   8.582954   0.00    2.00   
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">count</th>
-<th data-quarto-table-cell-role="th">mean</th>
-<th data-quarto-table-cell-role="th">std</th>
-<th data-quarto-table-cell-role="th">min</th>
-<th data-quarto-table-cell-role="th">25%</th>
-<th data-quarto-table-cell-role="th">50%</th>
-<th data-quarto-table-cell-role="th">75%</th>
-<th data-quarto-table-cell-role="th">max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">no_of_adults</td>
-<td>36275.0</td>
-<td>1.844962</td>
-<td>0.518715</td>
-<td>0.0</td>
-<td>2.0</td>
-<td>2.00</td>
-<td>2.0</td>
-<td>4.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">no_of_children</td>
-<td>36275.0</td>
-<td>0.105279</td>
-<td>0.402648</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.00</td>
-<td>0.0</td>
-<td>10.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">no_of_weekend_nights</td>
-<td>36275.0</td>
-<td>0.810724</td>
-<td>0.870644</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>1.00</td>
-<td>2.0</td>
-<td>7.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">no_of_week_nights</td>
-<td>36275.0</td>
-<td>2.204300</td>
-<td>1.410905</td>
-<td>0.0</td>
-<td>1.0</td>
-<td>2.00</td>
-<td>3.0</td>
-<td>17.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">required_car_parking_space</td>
-<td>36275.0</td>
-<td>0.030986</td>
-<td>0.173281</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.00</td>
-<td>0.0</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">lead_time</td>
-<td>36275.0</td>
-<td>85.232557</td>
-<td>85.930817</td>
-<td>0.0</td>
-<td>17.0</td>
-<td>57.00</td>
-<td>126.0</td>
-<td>443.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">arrival_year</td>
-<td>36275.0</td>
-<td>2017.820427</td>
-<td>0.383836</td>
-<td>2017.0</td>
-<td>2018.0</td>
-<td>2018.00</td>
-<td>2018.0</td>
-<td>2018.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">arrival_month</td>
-<td>36275.0</td>
-<td>7.423653</td>
-<td>3.069894</td>
-<td>1.0</td>
-<td>5.0</td>
-<td>8.00</td>
-<td>10.0</td>
-<td>12.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">arrival_date</td>
-<td>36275.0</td>
-<td>15.596995</td>
-<td>8.740447</td>
-<td>1.0</td>
-<td>8.0</td>
-<td>16.00</td>
-<td>23.0</td>
-<td>31.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">repeated_guest</td>
-<td>36275.0</td>
-<td>0.025637</td>
-<td>0.158053</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.00</td>
-<td>0.0</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">no_of_previous_cancellations</td>
-<td>36275.0</td>
-<td>0.023349</td>
-<td>0.368331</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.00</td>
-<td>0.0</td>
-<td>13.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">no_of_previous_bookings_not_canceled</td>
-<td>36275.0</td>
-<td>0.153411</td>
-<td>1.754171</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.00</td>
-<td>0.0</td>
-<td>58.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">avg_price_per_room</td>
-<td>36275.0</td>
-<td>103.423539</td>
-<td>35.089424</td>
-<td>0.0</td>
-<td>80.3</td>
-<td>99.45</td>
-<td>120.0</td>
-<td>540.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">no_of_special_requests</td>
-<td>36275.0</td>
-<td>0.619655</td>
-<td>0.786236</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.00</td>
-<td>1.0</td>
-<td>5.0</td>
-</tr>
-</tbody>
-</table>
+                                 50%     75%     max  
+Height_(cm)                   170.00  178.00  241.00  
+Weight_(kg)                    81.65   95.25  293.02  
+BMI                            27.44   31.85   99.33  
+Alcohol_Consumption             1.00    6.00   30.00  
+Fruit_Consumption              30.00   30.00  120.00  
+Green_Vegetables_Consumption   12.00   20.00  128.00  
+FriedPotato_Consumption         4.00    8.00  128.00  
+DataFrame dfHotel:
+                                        count         mean        std     min  \
+no_of_adults                          36275.0     1.844962   0.518715     0.0   
+no_of_children                        36275.0     0.105279   0.402648     0.0   
+no_of_weekend_nights                  36275.0     0.810724   0.870644     0.0   
+no_of_week_nights                     36275.0     2.204300   1.410905     0.0   
+required_car_parking_space            36275.0     0.030986   0.173281     0.0   
+lead_time                             36275.0    85.232557  85.930817     0.0   
+arrival_year                          36275.0  2017.820427   0.383836  2017.0   
+arrival_month                         36275.0     7.423653   3.069894     1.0   
+arrival_date                          36275.0    15.596995   8.740447     1.0   
+repeated_guest                        36275.0     0.025637   0.158053     0.0   
+no_of_previous_cancellations          36275.0     0.023349   0.368331     0.0   
+no_of_previous_bookings_not_canceled  36275.0     0.153411   1.754171     0.0   
+avg_price_per_room                    36275.0   103.423539  35.089424     0.0   
+no_of_special_requests                36275.0     0.619655   0.786236     0.0   
 
-</div>
+                                         25%      50%     75%     max  
+no_of_adults                             2.0     2.00     2.0     4.0  
+no_of_children                           0.0     0.00     0.0    10.0  
+no_of_weekend_nights                     0.0     1.00     2.0     7.0  
+no_of_week_nights                        1.0     2.00     3.0    17.0  
+required_car_parking_space               0.0     0.00     0.0     1.0  
+lead_time                               17.0    57.00   126.0   443.0  
+arrival_year                          2018.0  2018.00  2018.0  2018.0  
+arrival_month                            5.0     8.00    10.0    12.0  
+arrival_date                             8.0    16.00    23.0    31.0  
+repeated_guest                           0.0     0.00     0.0     1.0  
+no_of_previous_cancellations             0.0     0.00     0.0    13.0  
+no_of_previous_bookings_not_canceled     0.0     0.00     0.0    58.0  
+avg_price_per_room                      80.3    99.45   120.0   540.0  
+no_of_special_requests                   0.0     0.00     1.0     5.0  </code></pre>
 </div>
 </div>
 <p>Using this code, the most important statistical information of each numeric predictiors are calculated.</p>
-<div class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_numeric <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>np.number)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_numeric.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
-<pre><code>(36275, 14)</code></pre>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> {<span class="st">'dfweatherAUS'</span>: dfweatherAUS, <span class="st">'dfCVD'</span>: dfCVD, <span class="st">'dfHotel'</span>: dfHotel}</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, df <span class="kw">in</span> dataframes.items():</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    df_numeric <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>np.number)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Shape of numeric columns in DataFrame </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>df_numeric<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Shape of numeric columns in DataFrame dfweatherAUS: (56420, 16)
+Shape of numeric columns in DataFrame dfCVD: (308854, 7)
+Shape of numeric columns in DataFrame dfHotel: (36275, 14)</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># finding zero variance variables</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>selector_vr<span class="op">=</span> VarianceThreshold(threshold<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#selector_vr.fit_transform(df_numeric)</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#selector_vr.get_support(indices=True)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># finding zero variance variables</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> {<span class="st">'dfweatherAUS'</span>: dfweatherAUS, <span class="st">'dfCVD'</span>: dfCVD, <span class="st">'dfHotel'</span>: dfHotel}</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, df <span class="kw">in</span> dataframes.items():</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    df_numeric <span class="op">=</span> df.select_dtypes(include<span class="op">=</span>np.number)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    selector_vr <span class="op">=</span> VarianceThreshold(threshold<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    transformed_data <span class="op">=</span> selector_vr.fit_transform(df_numeric)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Transformed data shape for DataFrame </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>transformed_data<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Transformed data shape for DataFrame dfweatherAUS: (56420, 16)
+Transformed data shape for DataFrame dfCVD: (308854, 7)
+Transformed data shape for DataFrame dfHotel: (36275, 14)</code></pre>
+</div>
 </div>
 <p>If there are variables with standard deviation near the zero , we can delete it .</p>
-<div class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df.head()</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
-<pre><code>Index(['Booking_ID', 'no_of_adults', 'no_of_children', 'no_of_weekend_nights',
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> {<span class="st">'dfweatherAUS'</span>: dfweatherAUS, <span class="st">'dfCVD'</span>: dfCVD, <span class="st">'dfHotel'</span>: dfHotel}</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, df <span class="kw">in</span> dataframes.items():</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"DataFrame </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> - Head:"</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df.head())</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"DataFrame </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> - Columns:"</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>DataFrame dfweatherAUS - Head:
+            Date Location  MinTemp  MaxTemp  Rainfall  Evaporation  Sunshine  \
+6049  2009-01-01    Cobar     17.9     35.2       0.0         12.0      12.3   
+6050  2009-01-02    Cobar     18.4     28.9       0.0         14.8      13.0   
+6052  2009-01-04    Cobar     19.4     37.6       0.0         10.8      10.6   
+6053  2009-01-05    Cobar     21.9     38.4       0.0         11.4      12.2   
+6054  2009-01-06    Cobar     24.2     41.0       0.0         11.2       8.4   
+
+     WindGustDir  WindGustSpeed WindDir9am  ... Humidity9am  Humidity3pm  \
+6049         SSW           48.0        ENE  ...        20.0         13.0   
+6050           S           37.0        SSE  ...        30.0          8.0   
+6052         NNE           46.0        NNE  ...        42.0         22.0   
+6053         WNW           31.0        WNW  ...        37.0         22.0   
+6054         WNW           35.0         NW  ...        19.0         15.0   
+
+      Pressure9am  Pressure3pm  Cloud9am  Cloud3pm  Temp9am  Temp3pm  \
+6049       1006.3       1004.4       2.0       5.0     26.6     33.4   
+6050       1012.9       1012.1       1.0       1.0     20.3     27.0   
+6052       1012.3       1009.2       1.0       6.0     28.7     34.9   
+6053       1012.7       1009.1       1.0       5.0     29.1     35.6   
+6054       1010.7       1007.4       1.0       6.0     33.6     37.6   
+
+      RainToday  RainTomorrow  
+6049         No            No  
+6050         No            No  
+6052         No            No  
+6053         No            No  
+6054         No            No  
+
+[5 rows x 23 columns]
+DataFrame dfweatherAUS - Columns:
+Index(['Date', 'Location', 'MinTemp', 'MaxTemp', 'Rainfall', 'Evaporation',
+       'Sunshine', 'WindGustDir', 'WindGustSpeed', 'WindDir9am', 'WindDir3pm',
+       'WindSpeed9am', 'WindSpeed3pm', 'Humidity9am', 'Humidity3pm',
+       'Pressure9am', 'Pressure3pm', 'Cloud9am', 'Cloud3pm', 'Temp9am',
+       'Temp3pm', 'RainToday', 'RainTomorrow'],
+      dtype='object')
+DataFrame dfCVD - Head:
+  General_Health                  Checkup Exercise Heart_Disease Skin_Cancer  \
+0           Poor  Within the past 2 years       No            No          No   
+1      Very Good     Within the past year       No           Yes          No   
+2      Very Good     Within the past year      Yes            No          No   
+3           Poor     Within the past year      Yes           Yes          No   
+4           Good     Within the past year       No            No          No   
+
+  Other_Cancer Depression Diabetes Arthritis     Sex Age_Category  \
+0           No         No       No       Yes  Female        70-74   
+1           No         No      Yes        No  Female        70-74   
+2           No         No      Yes        No  Female        60-64   
+3           No         No      Yes        No    Male        75-79   
+4           No         No       No        No    Male          80+   
+
+   Height_(cm)  Weight_(kg)    BMI Smoking_History  Alcohol_Consumption  \
+0        150.0        32.66  14.54             Yes                  0.0   
+1        165.0        77.11  28.29              No                  0.0   
+2        163.0        88.45  33.47              No                  4.0   
+3        180.0        93.44  28.73              No                  0.0   
+4        191.0        88.45  24.37             Yes                  0.0   
+
+   Fruit_Consumption  Green_Vegetables_Consumption  FriedPotato_Consumption  
+0               30.0                          16.0                     12.0  
+1               30.0                           0.0                      4.0  
+2               12.0                           3.0                     16.0  
+3               30.0                          30.0                      8.0  
+4                8.0                           4.0                      0.0  
+DataFrame dfCVD - Columns:
+Index(['General_Health', 'Checkup', 'Exercise', 'Heart_Disease', 'Skin_Cancer',
+       'Other_Cancer', 'Depression', 'Diabetes', 'Arthritis', 'Sex',
+       'Age_Category', 'Height_(cm)', 'Weight_(kg)', 'BMI', 'Smoking_History',
+       'Alcohol_Consumption', 'Fruit_Consumption',
+       'Green_Vegetables_Consumption', 'FriedPotato_Consumption'],
+      dtype='object')
+DataFrame dfHotel - Head:
+  Booking_ID  no_of_adults  no_of_children  no_of_weekend_nights  \
+0   INN00001             2               0                     1   
+1   INN00002             2               0                     2   
+2   INN00003             1               0                     2   
+3   INN00004             2               0                     0   
+4   INN00005             2               0                     1   
+
+   no_of_week_nights type_of_meal_plan  required_car_parking_space  \
+0                  2       Meal Plan 1                           0   
+1                  3      Not Selected                           0   
+2                  1       Meal Plan 1                           0   
+3                  2       Meal Plan 1                           0   
+4                  1      Not Selected                           0   
+
+  room_type_reserved  lead_time  arrival_year  arrival_month  arrival_date  \
+0        Room_Type 1        224          2017             10             2   
+1        Room_Type 1          5          2018             11             6   
+2        Room_Type 1          1          2018              2            28   
+3        Room_Type 1        211          2018              5            20   
+4        Room_Type 1         48          2018              4            11   
+
+  market_segment_type  repeated_guest  no_of_previous_cancellations  \
+0             Offline               0                             0   
+1              Online               0                             0   
+2              Online               0                             0   
+3              Online               0                             0   
+4              Online               0                             0   
+
+   no_of_previous_bookings_not_canceled  avg_price_per_room  \
+0                                     0               65.00   
+1                                     0              106.68   
+2                                     0               60.00   
+3                                     0              100.00   
+4                                     0               94.50   
+
+   no_of_special_requests booking_status  
+0                       0   Not_Canceled  
+1                       1   Not_Canceled  
+2                       0       Canceled  
+3                       0       Canceled  
+4                       0       Canceled  
+DataFrame dfHotel - Columns:
+Index(['Booking_ID', 'no_of_adults', 'no_of_children', 'no_of_weekend_nights',
        'no_of_week_nights', 'type_of_meal_plan', 'required_car_parking_space',
        'room_type_reserved', 'lead_time', 'arrival_year', 'arrival_month',
        'arrival_date', 'market_segment_type', 'repeated_guest',
@@ -624,30 +2016,419 @@ Name: count, dtype: int64</code></pre>
 </div>
 <p>Now, we check the categorical variables and their categories to show the frequency of each values.</p>
 <p>Histograms are useful for analyzing the frequency distribution of different values for each variable. In each histogram, the horizontal axis represents the variable values, and the vertical axis indicates the frequency or the number of times each value appears in the data. The height of each column reflects the frequency or the number of samples with a specific value in that interval.</p>
-<div class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the columns you want to include in the analysis</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>selected_columns <span class="op">=</span> [<span class="st">'Booking_ID'</span>, <span class="st">'no_of_adults'</span>, <span class="st">'no_of_children'</span>, <span class="st">'no_of_weekend_nights'</span>,</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>       <span class="st">'no_of_week_nights'</span>, <span class="st">'type_of_meal_plan'</span>, <span class="st">'required_car_parking_space'</span>,</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>       <span class="st">'room_type_reserved'</span>, <span class="st">'lead_time'</span>, <span class="st">'arrival_year'</span>, <span class="st">'arrival_month'</span>,</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>       <span class="st">'arrival_date'</span>, <span class="st">'market_segment_type'</span>, <span class="st">'repeated_guest'</span>,</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>       <span class="st">'no_of_previous_cancellations'</span>, <span class="st">'no_of_previous_bookings_not_canceled'</span>,</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>       <span class="st">'avg_price_per_room'</span>, <span class="st">'no_of_special_requests'</span>, <span class="st">'booking_status'</span>]</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame containing only the selected columns</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>selected_df <span class="op">=</span> df[selected_columns]</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot histograms for each variable</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>selected_df.hist(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Histograms of Selected Variables'</span>)</span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the columns you want to include in the analysis - dfHotel</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>selected_columns_dfHotel <span class="op">=</span> [ <span class="st">'no_of_adults'</span>, <span class="st">'no_of_children'</span>, <span class="st">'no_of_weekend_nights'</span>,</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>       <span class="st">'no_of_week_nights'</span>, <span class="st">'type_of_meal_plan'</span>, <span class="st">'required_car_parking_space'</span>,</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>       <span class="st">'room_type_reserved'</span>, <span class="st">'lead_time'</span>, <span class="st">'arrival_year'</span>, <span class="st">'arrival_month'</span>,</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>       <span class="st">'arrival_date'</span>, <span class="st">'market_segment_type'</span>, <span class="st">'repeated_guest'</span>,</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>       <span class="st">'no_of_previous_cancellations'</span>, <span class="st">'no_of_previous_bookings_not_canceled'</span>,</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>       <span class="st">'avg_price_per_room'</span>, <span class="st">'no_of_special_requests'</span>, <span class="st">'booking_status'</span>]</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame containing only the selected columns</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>selected_dfHotel <span class="op">=</span> dfHotel[selected_columns_dfHotel]</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot histograms for each variable</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>selected_dfHotel.hist(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Histograms of Selected Variables (dfHotel)'</span>)</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Hotel_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+<p><img src="Hotel_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Displaying some statistics about categorical data</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df.describe(include<span class="op">=</span><span class="st">'object'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the columns you want to include in the analysis - dfweatherAUS</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>selected_columns_dfweatherAUS <span class="op">=</span> [ <span class="st">'Date'</span>, <span class="st">'Location'</span>, <span class="st">'MinTemp'</span>, <span class="st">'MaxTemp'</span>, <span class="st">'Rainfall'</span>, <span class="st">'Evaporation'</span>,</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Sunshine'</span>, <span class="st">'WindGustDir'</span>, <span class="st">'WindGustSpeed'</span>, <span class="st">'WindDir9am'</span>, <span class="st">'WindDir3pm'</span>,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>       <span class="st">'WindSpeed9am'</span>, <span class="st">'WindSpeed3pm'</span>, <span class="st">'Humidity9am'</span>, <span class="st">'Humidity3pm'</span>,</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Pressure9am'</span>, <span class="st">'Pressure3pm'</span>, <span class="st">'Cloud9am'</span>, <span class="st">'Cloud3pm'</span>, <span class="st">'Temp9am'</span>,</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Temp3pm'</span>, <span class="st">'RainToday'</span>, <span class="st">'RainTomorrow'</span>]</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame containing only the selected columns</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>selected_dfweatherAUS <span class="op">=</span> dfweatherAUS[selected_columns_dfweatherAUS]</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot histograms for each variable</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>selected_dfweatherAUS.hist(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Histograms of Selected Variables (dfweatherAUS)'</span>)</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Hotel_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the columns you want to include in the analysis - dfCVD</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>selected_columns_dfCVD <span class="op">=</span> [ <span class="st">'General_Health'</span>, <span class="st">'Checkup'</span>, <span class="st">'Exercise'</span>, <span class="st">'Heart_Disease'</span>, <span class="st">'Skin_Cancer'</span>,</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Other_Cancer'</span>, <span class="st">'Depression'</span>, <span class="st">'Diabetes'</span>, <span class="st">'Arthritis'</span>, <span class="st">'Sex'</span>,</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Age_Category'</span>, <span class="st">'Height_(cm)'</span>, <span class="st">'Weight_(kg)'</span>, <span class="st">'BMI'</span>, <span class="st">'Smoking_History'</span>,</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Alcohol_Consumption'</span>, <span class="st">'Fruit_Consumption'</span>,</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Green_Vegetables_Consumption'</span>, <span class="st">'FriedPotato_Consumption'</span>]</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame containing only the selected columns</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>selected_dfCVD <span class="op">=</span> dfCVD[selected_columns_dfCVD]</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot histograms for each variable</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>selected_dfCVD.hist(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Histograms of Selected Variables (dfCVD)'</span>)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Hotel_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Displaying some statistics about categorical data</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> {<span class="st">'dfweatherAUS'</span>: dfweatherAUS, <span class="st">'dfCVD'</span>: dfCVD, <span class="st">'dfHotel'</span>: dfHotel}</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, df <span class="kw">in</span> dataframes.items():</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"DataFrame </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> - Summary statistics for object-type columns:"</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df.describe(include<span class="op">=</span><span class="st">'object'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>DataFrame dfweatherAUS - Summary statistics for object-type columns:
+              Date Location WindGustDir WindDir9am WindDir3pm RainToday  \
+count        56420    56420       56420      56420      56420     56420   
+unique        3416       26          16         16         16         2   
+top     2010-11-16   Darwin           E          N         SE        No   
+freq            25     3062        4516       4967       4153     43958   
+
+       RainTomorrow  
+count         56420  
+unique            2  
+top              No  
+freq          43993  
+DataFrame dfCVD - Summary statistics for object-type columns:
+       General_Health               Checkup Exercise Heart_Disease  \
+count          308854                308854   308854        308854   
+unique              5                     5        2             2   
+top         Very Good  Within the past year      Yes            No   
+freq           110395                239371   239381        283883   
+
+       Skin_Cancer Other_Cancer Depression Diabetes Arthritis     Sex  \
+count       308854       308854     308854   308854    308854  308854   
+unique           2            2          2        4         2       2   
+top             No           No         No       No        No  Female   
+freq        278860       278976     246953   259141    207783  160196   
+
+       Age_Category Smoking_History  
+count        308854          308854  
+unique           13               2  
+top           65-69              No  
+freq          33434          183590  
+DataFrame dfHotel - Summary statistics for object-type columns:
+       Booking_ID type_of_meal_plan room_type_reserved market_segment_type  \
+count       36275             36275              36275               36275   
+unique      36275                 4                  7                   5   
+top      INN00001       Meal Plan 1        Room_Type 1              Online   
+freq            1             27835              28130               23214   
+
+       booking_status  
+count           36275  
+unique              2  
+top      Not_Canceled  
+freq            24390  </code></pre>
+</div>
+</div>
+</section>
+<section id="data-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="data-transformation">4.5 Data Transformation</h3>
+<section id="transforming-the-categorical-variables" class="level4">
+<h4 class="anchored" data-anchor-id="transforming-the-categorical-variables">4.5.1 Transforming the categorical variables</h4>
+<p>In this step, we numerized object variables . As it mentioned earlier, booking_status and target has two object:Not_Canceled , Canceled . For efficient use in the models, we convert Canceled to 1 and Not_Canceled to 0. If we have a column that is object or if we have Boolean, we can convert them to integer.</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>dfCVD.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Height_(cm)</th>
+<th data-quarto-table-cell-role="th">Weight_(kg)</th>
+<th data-quarto-table-cell-role="th">BMI</th>
+<th data-quarto-table-cell-role="th">Alcohol_Consumption</th>
+<th data-quarto-table-cell-role="th">Fruit_Consumption</th>
+<th data-quarto-table-cell-role="th">Green_Vegetables_Consumption</th>
+<th data-quarto-table-cell-role="th">FriedPotato_Consumption</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>308854.000000</td>
+<td>308854.000000</td>
+<td>308854.000000</td>
+<td>308854.000000</td>
+<td>308854.000000</td>
+<td>308854.000000</td>
+<td>308854.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>170.615249</td>
+<td>83.588655</td>
+<td>28.626211</td>
+<td>5.096366</td>
+<td>29.835200</td>
+<td>15.110441</td>
+<td>6.296616</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>10.658026</td>
+<td>21.343210</td>
+<td>6.522323</td>
+<td>8.199763</td>
+<td>24.875735</td>
+<td>14.926238</td>
+<td>8.582954</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>91.000000</td>
+<td>24.950000</td>
+<td>12.020000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>163.000000</td>
+<td>68.040000</td>
+<td>24.210000</td>
+<td>0.000000</td>
+<td>12.000000</td>
+<td>4.000000</td>
+<td>2.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>170.000000</td>
+<td>81.650000</td>
+<td>27.440000</td>
+<td>1.000000</td>
+<td>30.000000</td>
+<td>12.000000</td>
+<td>4.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>178.000000</td>
+<td>95.250000</td>
+<td>31.850000</td>
+<td>6.000000</td>
+<td>30.000000</td>
+<td>20.000000</td>
+<td>8.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>241.000000</td>
+<td>293.020000</td>
+<td>99.330000</td>
+<td>30.000000</td>
+<td>120.000000</td>
+<td>128.000000</td>
+<td>128.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>dfweatherAUS.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">MinTemp</th>
+<th data-quarto-table-cell-role="th">MaxTemp</th>
+<th data-quarto-table-cell-role="th">Rainfall</th>
+<th data-quarto-table-cell-role="th">Evaporation</th>
+<th data-quarto-table-cell-role="th">Sunshine</th>
+<th data-quarto-table-cell-role="th">WindGustSpeed</th>
+<th data-quarto-table-cell-role="th">WindSpeed9am</th>
+<th data-quarto-table-cell-role="th">WindSpeed3pm</th>
+<th data-quarto-table-cell-role="th">Humidity9am</th>
+<th data-quarto-table-cell-role="th">Humidity3pm</th>
+<th data-quarto-table-cell-role="th">Pressure9am</th>
+<th data-quarto-table-cell-role="th">Pressure3pm</th>
+<th data-quarto-table-cell-role="th">Cloud9am</th>
+<th data-quarto-table-cell-role="th">Cloud3pm</th>
+<th data-quarto-table-cell-role="th">Temp9am</th>
+<th data-quarto-table-cell-role="th">Temp3pm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>56420.000000</td>
+<td>56420.000000</td>
+<td>56420.000000</td>
+<td>56420.000000</td>
+<td>56420.000000</td>
+<td>56420.000000</td>
+<td>56420.000000</td>
+<td>56420.000000</td>
+<td>56420.000000</td>
+<td>56420.000000</td>
+<td>56420.000000</td>
+<td>56420.000000</td>
+<td>56420.000000</td>
+<td>56420.000000</td>
+<td>56420.000000</td>
+<td>56420.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>13.464770</td>
+<td>24.219206</td>
+<td>2.130397</td>
+<td>5.503135</td>
+<td>7.735626</td>
+<td>40.877366</td>
+<td>15.667228</td>
+<td>19.786778</td>
+<td>65.874123</td>
+<td>49.601985</td>
+<td>1017.239505</td>
+<td>1014.795580</td>
+<td>4.241705</td>
+<td>4.326515</td>
+<td>18.204961</td>
+<td>22.710333</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>6.416689</td>
+<td>6.970676</td>
+<td>7.014822</td>
+<td>3.696282</td>
+<td>3.758153</td>
+<td>13.335232</td>
+<td>8.317005</td>
+<td>8.510180</td>
+<td>18.513289</td>
+<td>20.197040</td>
+<td>6.909357</td>
+<td>6.870892</td>
+<td>2.797162</td>
+<td>2.647251</td>
+<td>6.567991</td>
+<td>6.836543</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>-6.700000</td>
+<td>4.100000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>9.000000</td>
+<td>2.000000</td>
+<td>2.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>980.500000</td>
+<td>977.100000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>-0.700000</td>
+<td>3.700000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>8.600000</td>
+<td>18.700000</td>
+<td>0.000000</td>
+<td>2.800000</td>
+<td>5.000000</td>
+<td>31.000000</td>
+<td>9.000000</td>
+<td>13.000000</td>
+<td>55.000000</td>
+<td>35.000000</td>
+<td>1012.700000</td>
+<td>1010.100000</td>
+<td>1.000000</td>
+<td>2.000000</td>
+<td>13.100000</td>
+<td>17.400000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>13.200000</td>
+<td>23.900000</td>
+<td>0.000000</td>
+<td>5.000000</td>
+<td>8.600000</td>
+<td>39.000000</td>
+<td>15.000000</td>
+<td>19.000000</td>
+<td>67.000000</td>
+<td>50.000000</td>
+<td>1017.200000</td>
+<td>1014.700000</td>
+<td>5.000000</td>
+<td>5.000000</td>
+<td>17.800000</td>
+<td>22.400000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>18.400000</td>
+<td>29.700000</td>
+<td>0.600000</td>
+<td>7.400000</td>
+<td>10.700000</td>
+<td>48.000000</td>
+<td>20.000000</td>
+<td>26.000000</td>
+<td>79.000000</td>
+<td>63.000000</td>
+<td>1021.800000</td>
+<td>1019.400000</td>
+<td>7.000000</td>
+<td>7.000000</td>
+<td>23.300000</td>
+<td>27.900000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>31.400000</td>
+<td>48.100000</td>
+<td>206.200000</td>
+<td>81.200000</td>
+<td>14.500000</td>
+<td>124.000000</td>
+<td>67.000000</td>
+<td>76.000000</td>
+<td>100.000000</td>
+<td>100.000000</td>
+<td>1040.400000</td>
+<td>1038.900000</td>
+<td>8.000000</td>
+<td>9.000000</td>
+<td>39.400000</td>
+<td>46.100000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>dfHotel.describe()</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>dfHotel.describe(include<span class="op">=</span><span class="st">'object'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 
 
@@ -701,213 +2482,281 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="data-transformation" class="level3">
-<h3 class="anchored" data-anchor-id="data-transformation">4.5 Data Transformation</h3>
-<section id="transforming-the-categorical-variables" class="level4">
-<h4 class="anchored" data-anchor-id="transforming-the-categorical-variables">4.5.1 Transforming the categorical variables</h4>
-<p>In this step, we numerized object variables . As it mentioned earlier, booking_status and target has two object:Not_Canceled , Canceled . For efficient use in the models, we convert Canceled to 1 and Not_Canceled to 0. If we have a column that is object or if we have Boolean, we can convert them to integer. In this stage I use the new data frame for own data with own selected column for better decision in the following steps.</p>
-<div class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="33">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">no_of_adults</th>
-<th data-quarto-table-cell-role="th">no_of_children</th>
-<th data-quarto-table-cell-role="th">no_of_weekend_nights</th>
-<th data-quarto-table-cell-role="th">no_of_week_nights</th>
-<th data-quarto-table-cell-role="th">required_car_parking_space</th>
-<th data-quarto-table-cell-role="th">lead_time</th>
-<th data-quarto-table-cell-role="th">arrival_year</th>
-<th data-quarto-table-cell-role="th">arrival_month</th>
-<th data-quarto-table-cell-role="th">arrival_date</th>
-<th data-quarto-table-cell-role="th">repeated_guest</th>
-<th data-quarto-table-cell-role="th">no_of_previous_cancellations</th>
-<th data-quarto-table-cell-role="th">no_of_previous_bookings_not_canceled</th>
-<th data-quarto-table-cell-role="th">avg_price_per_room</th>
-<th data-quarto-table-cell-role="th">no_of_special_requests</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">count</td>
-<td>36275.000000</td>
-<td>36275.000000</td>
-<td>36275.000000</td>
-<td>36275.000000</td>
-<td>36275.000000</td>
-<td>36275.000000</td>
-<td>36275.000000</td>
-<td>36275.000000</td>
-<td>36275.000000</td>
-<td>36275.000000</td>
-<td>36275.000000</td>
-<td>36275.000000</td>
-<td>36275.000000</td>
-<td>36275.000000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">mean</td>
-<td>1.844962</td>
-<td>0.105279</td>
-<td>0.810724</td>
-<td>2.204300</td>
-<td>0.030986</td>
-<td>85.232557</td>
-<td>2017.820427</td>
-<td>7.423653</td>
-<td>15.596995</td>
-<td>0.025637</td>
-<td>0.023349</td>
-<td>0.153411</td>
-<td>103.423539</td>
-<td>0.619655</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">std</td>
-<td>0.518715</td>
-<td>0.402648</td>
-<td>0.870644</td>
-<td>1.410905</td>
-<td>0.173281</td>
-<td>85.930817</td>
-<td>0.383836</td>
-<td>3.069894</td>
-<td>8.740447</td>
-<td>0.158053</td>
-<td>0.368331</td>
-<td>1.754171</td>
-<td>35.089424</td>
-<td>0.786236</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">min</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>2017.000000</td>
-<td>1.000000</td>
-<td>1.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">25%</td>
-<td>2.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>1.000000</td>
-<td>0.000000</td>
-<td>17.000000</td>
-<td>2018.000000</td>
-<td>5.000000</td>
-<td>8.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>80.300000</td>
-<td>0.000000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">50%</td>
-<td>2.000000</td>
-<td>0.000000</td>
-<td>1.000000</td>
-<td>2.000000</td>
-<td>0.000000</td>
-<td>57.000000</td>
-<td>2018.000000</td>
-<td>8.000000</td>
-<td>16.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>99.450000</td>
-<td>0.000000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">75%</td>
-<td>2.000000</td>
-<td>0.000000</td>
-<td>2.000000</td>
-<td>3.000000</td>
-<td>0.000000</td>
-<td>126.000000</td>
-<td>2018.000000</td>
-<td>10.000000</td>
-<td>23.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>120.000000</td>
-<td>1.000000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">max</td>
-<td>4.000000</td>
-<td>10.000000</td>
-<td>7.000000</td>
-<td>17.000000</td>
-<td>1.000000</td>
-<td>443.000000</td>
-<td>2018.000000</td>
-<td>12.000000</td>
-<td>31.000000</td>
-<td>1.000000</td>
-<td>13.000000</td>
-<td>58.000000</td>
-<td>540.000000</td>
-<td>5.000000</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#using Map Function</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df.copy()</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordinal Encoding for booking_status: 1 for 'Canceled', 0 for 'Not_Canceled'</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>ordinal_map <span class="op">=</span> {<span class="st">'Canceled'</span>: <span class="dv">1</span>, <span class="st">'Not_Canceled'</span>: <span class="dv">0</span>}</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'booking_status'</span>] <span class="op">=</span> df2[<span class="st">'booking_status'</span>].<span class="bu">map</span>(ordinal_map)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'booking_status'</span>] <span class="op">=</span> df2[<span class="st">'booking_status'</span>].astype(<span class="bu">int</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We check again the structure of the dataframe.</p>
-<div class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#df2.info()</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#df2.head()</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#df2.shape</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>unique_values <span class="op">=</span> df2[<span class="st">'type_of_meal_plan'</span>].unique()</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unique_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>????</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> {<span class="st">'dfweatherAUS'</span>: dfweatherAUS, <span class="st">'dfCVD'</span>: dfCVD, <span class="st">'dfHotel'</span>: dfHotel}</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, df <span class="kw">in</span> dataframes.items():</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"DataFrame </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">:"</span>)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> column <span class="kw">in</span> df.columns:</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> df[column].dtype <span class="op">==</span> <span class="st">'object'</span>:</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>            unique_values <span class="op">=</span> df[column].unique()</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Unique values for column '</span><span class="sc">{</span>column<span class="sc">}</span><span class="ss">':"</span>)</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(unique_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>['Meal Plan 1' 'Not Selected' 'Meal Plan 2' 'Meal Plan 3']</code></pre>
+<pre><code>DataFrame dfweatherAUS:
+Unique values for column 'Date':
+['2009-01-01' '2009-01-02' '2009-01-04' ... '2016-07-08' '2016-06-04'
+ '2016-06-05']
+Unique values for column 'Location':
+['Cobar' 'CoffsHarbour' 'Moree' 'NorfolkIsland' 'Sydney' 'SydneyAirport'
+ 'WaggaWagga' 'Williamtown' 'Canberra' 'Sale' 'MelbourneAirport'
+ 'Melbourne' 'Mildura' 'Portland' 'Watsonia' 'Brisbane' 'Cairns'
+ 'Townsville' 'MountGambier' 'Nuriootpa' 'Woomera' 'PerthAirport' 'Perth'
+ 'Hobart' 'AliceSprings' 'Darwin']
+Unique values for column 'WindGustDir':
+['SSW' 'S' 'NNE' 'WNW' 'N' 'SE' 'ENE' 'NE' 'E' 'SW' 'W' 'WSW' 'NNW' 'ESE'
+ 'SSE' 'NW']
+Unique values for column 'WindDir9am':
+['ENE' 'SSE' 'NNE' 'WNW' 'NW' 'N' 'S' 'SE' 'NE' 'W' 'SSW' 'E' 'NNW' 'ESE'
+ 'WSW' 'SW']
+Unique values for column 'WindDir3pm':
+['SW' 'SSE' 'NNW' 'WSW' 'WNW' 'S' 'ENE' 'N' 'SE' 'NNE' 'NW' 'E' 'ESE' 'NE'
+ 'SSW' 'W']
+Unique values for column 'RainToday':
+['No' 'Yes']
+Unique values for column 'RainTomorrow':
+['No' 'Yes']
+DataFrame dfCVD:
+Unique values for column 'General_Health':
+['Poor' 'Very Good' 'Good' 'Fair' 'Excellent']
+Unique values for column 'Checkup':
+['Within the past 2 years' 'Within the past year' '5 or more years ago'
+ 'Within the past 5 years' 'Never']
+Unique values for column 'Exercise':
+['No' 'Yes']
+Unique values for column 'Heart_Disease':
+['No' 'Yes']
+Unique values for column 'Skin_Cancer':
+['No' 'Yes']
+Unique values for column 'Other_Cancer':
+['No' 'Yes']
+Unique values for column 'Depression':
+['No' 'Yes']
+Unique values for column 'Diabetes':
+['No' 'Yes' 'No, pre-diabetes or borderline diabetes'
+ 'Yes, but female told only during pregnancy']
+Unique values for column 'Arthritis':
+['Yes' 'No']
+Unique values for column 'Sex':
+['Female' 'Male']
+Unique values for column 'Age_Category':
+['70-74' '60-64' '75-79' '80+' '65-69' '50-54' '45-49' '18-24' '30-34'
+ '55-59' '35-39' '40-44' '25-29']
+Unique values for column 'Smoking_History':
+['Yes' 'No']
+DataFrame dfHotel:
+Unique values for column 'Booking_ID':
+['INN00001' 'INN00002' 'INN00003' ... 'INN36273' 'INN36274' 'INN36275']
+Unique values for column 'type_of_meal_plan':
+['Meal Plan 1' 'Not Selected' 'Meal Plan 2' 'Meal Plan 3']
+Unique values for column 'room_type_reserved':
+['Room_Type 1' 'Room_Type 4' 'Room_Type 2' 'Room_Type 6' 'Room_Type 5'
+ 'Room_Type 7' 'Room_Type 3']
+Unique values for column 'market_segment_type':
+['Offline' 'Online' 'Corporate' 'Aviation' 'Complementary']
+Unique values for column 'booking_status':
+['Not_Canceled' 'Canceled']</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get unique values in the column</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>unique_values <span class="op">=</span> df2[<span class="st">'booking_status'</span>].unique()</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unique_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[0 1]</code></pre>
-</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#using Map Function</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>dfHotel2 <span class="op">=</span> dfHotel.copy()</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>columns_to_drop <span class="op">=</span> [<span class="st">'Booking_ID'</span>,<span class="st">'room_type_reserved'</span>]</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>dfHotel2<span class="op">=</span> dfHotel2.drop(columns<span class="op">=</span>columns_to_drop)</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordinal Encoding for booking_status: 1 for 'Canceled', 0 for 'Not_Canceled'</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>ordinal_map <span class="op">=</span> {<span class="st">'Canceled'</span>: <span class="dv">1</span>, <span class="st">'Not_Canceled'</span>: <span class="dv">0</span>}</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>dfHotel2[<span class="st">'booking_status'</span>] <span class="op">=</span> dfHotel2[<span class="st">'booking_status'</span>].<span class="bu">map</span>(ordinal_map)</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>dfHotel2[<span class="st">'booking_status'</span>] <span class="op">=</span> dfHotel2[<span class="st">'booking_status'</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>ordinal_map <span class="op">=</span> {<span class="st">'Meal Plan 1'</span>: <span class="dv">1</span>, <span class="st">'Not Selected'</span>: <span class="dv">0</span> ,<span class="st">'Meal Plan 2'</span>: <span class="dv">2</span>,<span class="st">'Meal Plan 3'</span>: <span class="dv">3</span>}</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>dfHotel2[<span class="st">'type_of_meal_plan'</span>] <span class="op">=</span> dfHotel2[<span class="st">'type_of_meal_plan'</span>].<span class="bu">map</span>(ordinal_map)</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>dfHotel2[<span class="st">'type_of_meal_plan'</span>] <span class="op">=</span> dfHotel2[<span class="st">'type_of_meal_plan'</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>ordinal_map <span class="op">=</span> {<span class="st">'Offline'</span>: <span class="dv">1</span>, <span class="st">'Online'</span>: <span class="dv">0</span> ,<span class="st">'Corporate'</span>: <span class="dv">2</span>,<span class="st">'Aviation'</span>: <span class="dv">3</span>,<span class="st">'Complementary'</span>: <span class="dv">4</span>,}</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>dfHotel2[<span class="st">'market_segment_type'</span>] <span class="op">=</span> dfHotel2[<span class="st">'market_segment_type'</span>].<span class="bu">map</span>(ordinal_map)</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>dfHotel2[<span class="st">'market_segment_type'</span>] <span class="op">=</span> dfHotel2[<span class="st">'market_segment_type'</span>].astype(<span class="bu">int</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="normalization-standardization-scaling" class="level4">
 <h4 class="anchored" data-anchor-id="normalization-standardization-scaling">4.5.2 Normalization, standardization, scaling</h4>
+<p>The data normalization process lowers the scale and brings all the data-points on the same scale. Normalization involves scaling the values of a variable to a specific range, usually between 0 and 1. Scaling is a general term for any transformation that alters the range of the data. Standardization (Z-score normalization) transforms the data to have a mean of 0 and a standard deviation of 1. we use scaling in the model selection section.</p>
 </section>
+</section>
+</section>
+<section id="data-exploration" class="level2">
+<h2 class="anchored" data-anchor-id="data-exploration">5 Data Exploration</h2>
+<p>We put our visualization here.</p>
+<section id="finding-outliers-dummy-variable" class="level3">
+<h3 class="anchored" data-anchor-id="finding-outliers-dummy-variable">5.1 Finding outliers , dummy variable</h3>
+<p>Using of outlier detection methods depends on the type of data and the aim of analysis. However, generally, these methods are commonly applied to numerical and continuous variables. The reason for this is that the concept of outlier detection is more definable in continuous variables, and statistical measures such as mean, standard deviation, box plots, can easily be employed for detecting them. For detecting outliers of discrete and categorical variables, we need to find whether types of variables are integer or objects. We find the outliers, the Q1, Q3 and compare it with data and count how much of each independent variable out of this range and then recognize them . For each integer variable, we use boxplot and histogram for visualization. The plots for each variables are as follows: Box plot is oneof best chart to show distribution of data points. As the plot shows below,</p>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">3</span>))</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">121</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>plt.hist(np.array(dfHotel2[<span class="st">'booking_status'</span>]) , density<span class="op">=</span><span class="va">True</span> , bins<span class="op">=</span><span class="dv">50</span>, edgecolor<span class="op">=</span><span class="st">'black'</span> ,facecolor<span class="op">=</span><span class="st">'pink'</span>, alpha<span class="op">=</span><span class="fl">0.75</span>)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Value'</span>, fontsize<span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>, fontsize<span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">122</span>)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>sns.boxplot(y <span class="op">=</span><span class="st">'booking_status'</span>, data<span class="op">=</span>dfHotel2,palette<span class="op">=</span><span class="st">"Blues"</span>)</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'booking_status'</span>)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Hotel_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate IQR and show thw outliers</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>Q1 <span class="op">=</span> dfHotel2[<span class="st">'booking_status'</span>].quantile(<span class="fl">0.25</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>Q3 <span class="op">=</span> dfHotel2[<span class="st">'booking_status'</span>].quantile(<span class="fl">0.75</span>)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Q1:"</span>,Q1)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Q3:"</span>,Q3)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>IQR <span class="op">=</span> Q3 <span class="op">-</span> Q1</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"IQR:"</span>,IQR)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>Out1<span class="op">=</span>Q1 <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> IQR</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Out1:"</span>,Out1)</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>Out2<span class="op">=</span>Q3 <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> IQR</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Out2:"</span>,Out2)</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>outliers_booking_status <span class="op">=</span> (dfHotel2[<span class="st">'booking_status'</span>] <span class="op">&lt;</span> Q1 <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> IQR) <span class="op">|</span> (dfHotel2[<span class="st">'booking_status'</span>] <span class="op">&gt;</span> Q3 <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> IQR)</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the DataFrame to get the actual outlier values</span></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>outliers_booking_status  <span class="op">=</span> dfHotel2.loc[outliers_booking_status, <span class="st">'booking_status'</span>]</span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the outlier values</span></span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"dfHotel2 :"</span>, outliers_booking_status)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Q1: 0.0
+Q3: 1.0
+IQR: 1.0
+Out1: -1.5
+Out2: 2.5
+dfHotel2 : Series([], Name: booking_status, dtype: int32)</code></pre>
+</div>
+</div>
+<p>…………………………</p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">3</span>))</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">121</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>plt.hist(np.array(dfHotel2[<span class="st">'market_segment_type'</span>]) , density<span class="op">=</span><span class="va">True</span> , bins<span class="op">=</span><span class="dv">50</span>, edgecolor<span class="op">=</span><span class="st">'black'</span> ,facecolor<span class="op">=</span><span class="st">'pink'</span>, alpha<span class="op">=</span><span class="fl">0.75</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Value'</span>, fontsize<span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>, fontsize<span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">122</span>)</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>sns.boxplot(y <span class="op">=</span><span class="st">'market_segment_type'</span>, data<span class="op">=</span>dfHotel2,palette<span class="op">=</span><span class="st">"Blues"</span>)</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'market_segment_type'</span>)</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Hotel_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate IQR and show thw outliers</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>Q1 <span class="op">=</span> dfHotel2[<span class="st">'market_segment_type'</span>].quantile(<span class="fl">0.25</span>)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>Q3 <span class="op">=</span> dfHotel2[<span class="st">'market_segment_type'</span>].quantile(<span class="fl">0.75</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Q1:"</span>,Q1)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Q3:"</span>,Q3)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>IQR <span class="op">=</span> Q3 <span class="op">-</span> Q1</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"IQR:"</span>,IQR)</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>Out1<span class="op">=</span>Q1 <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> IQR</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Out1:"</span>,Out1)</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>Out2<span class="op">=</span>Q3 <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> IQR</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Out2:"</span>,Out2)</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>outliers_market_segment_type <span class="op">=</span> (dfHotel2[<span class="st">'market_segment_type'</span>] <span class="op">&lt;</span> Q1 <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> IQR) <span class="op">|</span> (dfHotel2[<span class="st">'market_segment_type'</span>] <span class="op">&gt;</span> Q3 <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> IQR)</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the DataFrame to get the actual outlier values</span></span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>outliers_market_segment_type  <span class="op">=</span> dfHotel2.loc[outliers_market_segment_type, <span class="st">'market_segment_type'</span>]</span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the outlier values</span></span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"dfHotel2 :"</span>, outliers_market_segment_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Q1: 0.0
+Q3: 1.0
+IQR: 1.0
+Out1: -1.5
+Out2: 2.5
+dfHotel2 : 27       3
+63       4
+145      4
+209      4
+266      4
+        ..
+35469    4
+35836    4
+35983    4
+36080    4
+36165    4
+Name: market_segment_type, Length: 516, dtype: int32</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check the columns we can see outliers</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>toll_dfHotel2 <span class="op">=</span> dfHotel2.loc[dfHotel2[<span class="st">'market_segment_type'</span>]<span class="op">&gt;</span><span class="fl">2.5</span>]</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>toll_dfHotel2.shape</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>dfHotel2 <span class="op">=</span> dfHotel2.loc[dfHotel2[<span class="st">'market_segment_type'</span>] <span class="op">&lt;=</span> <span class="fl">2.5</span>]</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>dfHotel2.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>(35759, 17)</code></pre>
+</div>
+</div>
+<p>** Bar charts for discrete and categorical variables ***</p>
+<p>To find the outliers of discrete and categorical variables we need to find the type of variables whether they are integer or objects . For each discrete variable (including Booleans), we used bar charts highlighting the booking variable for each value.</p>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>int_dfHotel2 <span class="op">=</span> dfHotel2.select_dtypes(include<span class="op">=</span><span class="st">'integer'</span>)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>int_dfHotel2.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>Index(['no_of_adults', 'no_of_children', 'no_of_weekend_nights',
+       'no_of_week_nights', 'type_of_meal_plan', 'required_car_parking_space',
+       'lead_time', 'arrival_year', 'arrival_month', 'arrival_date',
+       'market_segment_type', 'repeated_guest', 'no_of_previous_cancellations',
+       'no_of_previous_bookings_not_canceled', 'no_of_special_requests',
+       'booking_status'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking the linear correlation of variables</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>int_dfHotel2<span class="op">=</span>int_dfHotel2[[ </span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="st">'no_of_adults'</span>, <span class="st">'no_of_children'</span>, <span class="st">'no_of_weekend_nights'</span>,</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>       <span class="st">'no_of_week_nights'</span>, <span class="st">'type_of_meal_plan'</span>, <span class="st">'required_car_parking_space'</span>,</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>       <span class="st">'lead_time'</span>, <span class="st">'arrival_year'</span>, <span class="st">'arrival_month'</span>, <span class="st">'arrival_date'</span>,</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>       <span class="st">'market_segment_type'</span>, <span class="st">'repeated_guest'</span>, <span class="st">'no_of_previous_cancellations'</span>,</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>       <span class="st">'no_of_previous_bookings_not_canceled'</span>, <span class="st">'no_of_special_requests'</span>,</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>       <span class="st">'booking_status'</span>]]</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="op">=</span> int_dfHotel2.corr()</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>corr_matrix[<span class="st">'booking_status'</span>].sort_values(ascending <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>booking_status                          1.000000
+lead_time                               0.436424
+arrival_year                            0.178701
+no_of_week_nights                       0.086688
+no_of_adults                            0.082722
+no_of_weekend_nights                    0.055684
+type_of_meal_plan                       0.051049
+no_of_children                          0.033759
+arrival_date                            0.010556
+arrival_month                          -0.010292
+no_of_previous_cancellations           -0.030477
+no_of_previous_bookings_not_canceled   -0.053903
+required_car_parking_space             -0.085186
+repeated_guest                         -0.099190
+market_segment_type                    -0.122970
+no_of_special_requests                 -0.254448
+Name: booking_status, dtype: float64</code></pre>
+</div>
+</div>
+<div id="get-correlation-visually1" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">19</span>,<span class="dv">10</span>))</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>sns.heatmap(int_dfHotel2[[<span class="st">'no_of_adults'</span>, <span class="st">'no_of_children'</span>, <span class="st">'no_of_weekend_nights'</span>,</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>       <span class="st">'no_of_week_nights'</span>, <span class="st">'type_of_meal_plan'</span>, <span class="st">'required_car_parking_space'</span>,</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>       <span class="st">'lead_time'</span>, <span class="st">'arrival_year'</span>, <span class="st">'arrival_month'</span>, <span class="st">'arrival_date'</span>,</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>       <span class="st">'market_segment_type'</span>, <span class="st">'repeated_guest'</span>, <span class="st">'no_of_previous_cancellations'</span>,</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>       <span class="st">'no_of_previous_bookings_not_canceled'</span>, <span class="st">'no_of_special_requests'</span>,</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>       ]].corr(), cmap<span class="op">=</span><span class="st">"YlGnBu"</span>,</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>            annot<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="get-correlation-visually1-1" class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>&lt;Axes: &gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Hotel_files/figure-html/get-correlation-visually1-output-2.png" id="get-correlation-visually1-2" class="img-fluid"></p>
+</div>
+</div>
 </section>
 </section>
 

@@ -78,7 +78,9 @@ With this function, we check all culmns and their type.
 ```{python}
 #| label: Get informaion
 # getting data on dataset
-df.info()
+dfHotel.info()
+dfCVD.info()
+dfweatherAUS.info()
 ```
 
 ## 4. Data Pre-processing
@@ -95,16 +97,31 @@ In most cases, we do not get complete datasets. They either have some missing va
 
 ```{python}
 # Drop rows with null values
-df = df.dropna()
-df.info()
-df.shape
+
+dfHotel =dfHotel.dropna()
+dfCVD =dfCVD.dropna()
+dfweatherAUS =dfweatherAUS.dropna()
+dfHotel.info()
+dfCVD.info()
+dfweatherAUS.info()
+
+dataframes = [dfweatherAUS, dfCVD, dfHotel]
+
+for i, df in enumerate(dataframes, start=1):
+    shape = df.shape
+    print(f"Shape of df{i}: {shape}")
+
 ```
 
 ```{python}
 # Checking for missing values in the entire dataset
-missing_values = df.isnull().sum()
-# Printing the result
-print(missing_values)
+dataframes = [dfweatherAUS, dfCVD, dfHotel]
+
+for i, df in enumerate(dataframes, start=1):
+    missing_values = df.isnull().sum()
+    print(f"Missing values in df{i}:")
+    print(missing_values)
+
 ```
 
 
@@ -120,8 +137,14 @@ The detail of these values is given in the following tables:
  ```
 ```{python}
 # Checking the negative values of no_of_adults
-for column in df.columns:
-    print(df[column].value_counts())
+dataframes = [dfweatherAUS, dfCVD, dfHotel]
+
+for i, df in enumerate(dataframes, start=1):
+    print(f"DataFrame {i}:")
+    for column in df.columns:
+        print(f"Value counts for column '{column}':")
+        print(df[column].value_counts())
+
 ```
 
 
@@ -133,28 +156,49 @@ Checking the distribution of each variable involves examining the spread and pat
 
 ```{python}
 # check the distribution for each column
-df.describe().T
+dataframes = {'dfweatherAUS': dfweatherAUS, 'dfCVD': dfCVD, 'dfHotel': dfHotel}
+
+for name, df in dataframes.items():
+    print(f"DataFrame {name}:")
+    print(df.describe().T)
+
 ```
 
 Using this code, the most important statistical information of each numeric predictiors are calculated.
 ```{python}
-df_numeric = df.select_dtypes(include=np.number)
-df_numeric.shape
+
+dataframes = {'dfweatherAUS': dfweatherAUS, 'dfCVD': dfCVD, 'dfHotel': dfHotel}
+
+for name, df in dataframes.items():
+    df_numeric = df.select_dtypes(include=np.number)
+    print(f"Shape of numeric columns in DataFrame {name}: {df_numeric.shape}")
+
 ```
 
 ```{python}
 
 # finding zero variance variables
-selector_vr= VarianceThreshold(threshold=0)
-selector_vr.fit_transform(df_numeric)
-#selector_vr.get_support(indices=True)
+dataframes = {'dfweatherAUS': dfweatherAUS, 'dfCVD': dfCVD, 'dfHotel': dfHotel}
+
+for name, df in dataframes.items():
+    df_numeric = df.select_dtypes(include=np.number)
+    selector_vr = VarianceThreshold(threshold=0)
+    transformed_data = selector_vr.fit_transform(df_numeric)
+    print(f"Transformed data shape for DataFrame {name}: {transformed_data.shape}")
 ```
 
 If there are variables with standard deviation near the zero , we can delete it . 
 
 ```{python}
-df.head()
-df.columns
+
+dataframes = {'dfweatherAUS': dfweatherAUS, 'dfCVD': dfCVD, 'dfHotel': dfHotel}
+
+for name, df in dataframes.items():
+    print(f"DataFrame {name} - Head:")
+    print(df.head())
+    print(f"DataFrame {name} - Columns:")
+    print(df.columns)
+
 ```
 
 Now, we check the categorical variables and their categories to show the frequency of each values.
@@ -162,8 +206,8 @@ Now, we check the categorical variables and their categories to show the frequen
 Histograms are useful for analyzing the frequency distribution of different values for each variable. In each histogram, the horizontal axis represents the variable values, and the vertical axis indicates the frequency or the number of times each value appears in the data. The height of each column reflects the frequency or the number of samples with a specific value in that interval.
 
 ```{python}
-# Specify the columns you want to include in the analysis
-selected_columns = ['Booking_ID', 'no_of_adults', 'no_of_children', 'no_of_weekend_nights',
+# Specify the columns you want to include in the analysis - dfHotel
+selected_columns_dfHotel = [ 'no_of_adults', 'no_of_children', 'no_of_weekend_nights',
        'no_of_week_nights', 'type_of_meal_plan', 'required_car_parking_space',
        'room_type_reserved', 'lead_time', 'arrival_year', 'arrival_month',
        'arrival_date', 'market_segment_type', 'repeated_guest',
@@ -171,19 +215,57 @@ selected_columns = ['Booking_ID', 'no_of_adults', 'no_of_children', 'no_of_weeke
        'avg_price_per_room', 'no_of_special_requests', 'booking_status']
 
 # Create a DataFrame containing only the selected columns
-selected_df = df[selected_columns]
+selected_dfHotel = dfHotel[selected_columns_dfHotel]
 
 # Plot histograms for each variable
-selected_df.hist(figsize=(10, 8))
-plt.suptitle('Histograms of Selected Variables')
+selected_dfHotel.hist(figsize=(10, 8))
+plt.suptitle('Histograms of Selected Variables (dfHotel)')
 plt.show()
 ```
 
 
+```{python}
+# Specify the columns you want to include in the analysis - dfweatherAUS
+selected_columns_dfweatherAUS = [ 'Date', 'Location', 'MinTemp', 'MaxTemp', 'Rainfall', 'Evaporation',
+       'Sunshine', 'WindGustDir', 'WindGustSpeed', 'WindDir9am', 'WindDir3pm',
+       'WindSpeed9am', 'WindSpeed3pm', 'Humidity9am', 'Humidity3pm',
+       'Pressure9am', 'Pressure3pm', 'Cloud9am', 'Cloud3pm', 'Temp9am',
+       'Temp3pm', 'RainToday', 'RainTomorrow']
+
+# Create a DataFrame containing only the selected columns
+selected_dfweatherAUS = dfweatherAUS[selected_columns_dfweatherAUS]
+
+# Plot histograms for each variable
+selected_dfweatherAUS.hist(figsize=(10, 8))
+plt.suptitle('Histograms of Selected Variables (dfweatherAUS)')
+plt.show()
+```
+
 
 ```{python}
+# Specify the columns you want to include in the analysis - dfCVD
+selected_columns_dfCVD = [ 'General_Health', 'Checkup', 'Exercise', 'Heart_Disease', 'Skin_Cancer',
+       'Other_Cancer', 'Depression', 'Diabetes', 'Arthritis', 'Sex',
+       'Age_Category', 'Height_(cm)', 'Weight_(kg)', 'BMI', 'Smoking_History',
+       'Alcohol_Consumption', 'Fruit_Consumption',
+       'Green_Vegetables_Consumption', 'FriedPotato_Consumption']
+
+# Create a DataFrame containing only the selected columns
+selected_dfCVD = dfCVD[selected_columns_dfCVD]
+
+# Plot histograms for each variable
+selected_dfCVD.hist(figsize=(10, 8))
+plt.suptitle('Histograms of Selected Variables (dfCVD)')
+plt.show()
+```
+```{python}
 # Displaying some statistics about categorical data
-df.describe(include='object')
+dataframes = {'dfweatherAUS': dfweatherAUS, 'dfCVD': dfCVD, 'dfHotel': dfHotel}
+
+for name, df in dataframes.items():
+    print(f"DataFrame {name} - Summary statistics for object-type columns:")
+    print(df.describe(include='object'))
+
 ```
 
 ### 4.5 Data Transformation
@@ -193,42 +275,189 @@ In this step, we numerized object variables . As it mentioned earlier, booking_s
 , Canceled
 . For efficient use in the models, we convert Canceled
  to 1 and Not_Canceled to 0.
-If we have a column that is object or if we have Boolean, we can convert them to integer. In this stage I use the new data frame for own data with own selected column for better decision in the following steps.
+If we have a column that is object or if we have Boolean, we can convert them to integer. 
 ```{python} 
-df.describe()
+dfCVD.describe()
 ```
+
+
+```{python} 
+dfweatherAUS.describe()
+```
+
+```{python} 
+dfHotel.describe()
+dfHotel.describe(include='object')
+```
+
+
+????
+
+```{python} 
+dataframes = {'dfweatherAUS': dfweatherAUS, 'dfCVD': dfCVD, 'dfHotel': dfHotel}
+
+for name, df in dataframes.items():
+    print(f"DataFrame {name}:")
+    for column in df.columns:
+        if df[column].dtype == 'object':
+            unique_values = df[column].unique()
+            print(f"Unique values for column '{column}':")
+            print(unique_values)
+
+```
+
 
 
 ```{python}
 #using Map Function
-df2 = df.copy()
-
+dfHotel2 = dfHotel.copy()
+columns_to_drop = ['Booking_ID','room_type_reserved']
+dfHotel2= dfHotel2.drop(columns=columns_to_drop)
 # Ordinal Encoding for booking_status: 1 for 'Canceled', 0 for 'Not_Canceled'
 ordinal_map = {'Canceled': 1, 'Not_Canceled': 0}
-df2['booking_status'] = df2['booking_status'].map(ordinal_map)
-df2['booking_status'] = df2['booking_status'].astype(int)
+dfHotel2['booking_status'] = dfHotel2['booking_status'].map(ordinal_map)
+dfHotel2['booking_status'] = dfHotel2['booking_status'].astype(int)
 
+
+ordinal_map = {'Meal Plan 1': 1, 'Not Selected': 0 ,'Meal Plan 2': 2,'Meal Plan 3': 3}
+dfHotel2['type_of_meal_plan'] = dfHotel2['type_of_meal_plan'].map(ordinal_map)
+dfHotel2['type_of_meal_plan'] = dfHotel2['type_of_meal_plan'].astype(int)
+
+ordinal_map = {'Offline': 1, 'Online': 0 ,'Corporate': 2,'Aviation': 3,'Complementary': 4,}
+dfHotel2['market_segment_type'] = dfHotel2['market_segment_type'].map(ordinal_map)
+dfHotel2['market_segment_type'] = dfHotel2['market_segment_type'].astype(int)
 ```
 
 
-
-We check again the structure of the dataframe.
-```{python}
-#df2.info()
-#df2.head()
-#df2.shape
-unique_values = df2['type_of_meal_plan'].unique()
-print(unique_values)
-```
-
-```{python}
-# Get unique values in the column
-unique_values = df2['booking_status'].unique()
-print(unique_values)
-
-```
 
 
 #### 4.5.2 Normalization, standardization, scaling
+The data normalization process lowers the scale and brings all the data-points on the same scale.
+Normalization involves scaling the values of a variable to a specific range, usually between 0 and 1. Scaling is a general term for any transformation that alters the range of the data.
+Standardization (Z-score normalization) transforms the data to have a mean of 0 and a standard deviation of 1. we use scaling in the model selection section.
+
+## 5 Data Exploration
+
+We put our visualization here.
+
+### 5.1 Finding outliers , dummy variable
+
+ Using of outlier detection methods depends on the type of data and the aim of analysis. However, generally, these methods are commonly applied to numerical and continuous variables. The reason for this is that the concept of outlier detection is more definable in continuous variables, and statistical measures such as mean, standard deviation, box plots, can easily be employed for detecting them.
+For detecting outliers of discrete and categorical variables, we need to find whether types of variables are integer or objects. We find the outliers, the Q1, Q3 and compare it with data and count how much of each independent variable out of this range and then recognize them .
+For each integer variable, we use boxplot and histogram for visualization. 
+The plots for each variables are as follows:
+Box plot is oneof best chart to show distribution of data points.
+As the plot shows below, 
+```{python}
+plt.figure(figsize=(10,3))
+plt.subplot(121)
+plt.hist(np.array(dfHotel2['booking_status']) , density=True , bins=50, edgecolor='black' ,facecolor='pink', alpha=0.75)
+plt.xlabel('Value', fontsize= 10)
+plt.ylabel('Frequency', fontsize= 10)
+plt.subplot(122)
+sns.boxplot(y ='booking_status', data=dfHotel2,palette="Blues")
+plt.xlabel('booking_status')
+plt.show()
+```
 
 
+```{python}
+#calculate IQR and show thw outliers
+Q1 = dfHotel2['booking_status'].quantile(0.25)
+Q3 = dfHotel2['booking_status'].quantile(0.75)
+print("Q1:",Q1)
+print("Q3:",Q3)
+IQR = Q3 - Q1
+print("IQR:",IQR)
+Out1=Q1 - 1.5 * IQR
+print("Out1:",Out1)
+Out2=Q3 + 1.5 * IQR
+print("Out2:",Out2)
+outliers_booking_status = (dfHotel2['booking_status'] < Q1 - 1.5 * IQR) | (dfHotel2['booking_status'] > Q3 + 1.5 * IQR)
+# Filter the DataFrame to get the actual outlier values
+outliers_booking_status  = dfHotel2.loc[outliers_booking_status, 'booking_status']
+# Display the outlier values
+print("dfHotel2 :", outliers_booking_status)
+```
+
+..............................
+
+
+```{python}
+plt.figure(figsize=(10,3))
+plt.subplot(121)
+plt.hist(np.array(dfHotel2['market_segment_type']) , density=True , bins=50, edgecolor='black' ,facecolor='pink', alpha=0.75)
+plt.xlabel('Value', fontsize= 10)
+plt.ylabel('Frequency', fontsize= 10)
+plt.subplot(122)
+sns.boxplot(y ='market_segment_type', data=dfHotel2,palette="Blues")
+plt.xlabel('market_segment_type')
+plt.show()
+```
+
+
+```{python}
+#calculate IQR and show thw outliers
+Q1 = dfHotel2['market_segment_type'].quantile(0.25)
+Q3 = dfHotel2['market_segment_type'].quantile(0.75)
+print("Q1:",Q1)
+print("Q3:",Q3)
+IQR = Q3 - Q1
+print("IQR:",IQR)
+Out1=Q1 - 1.5 * IQR
+print("Out1:",Out1)
+Out2=Q3 + 1.5 * IQR
+print("Out2:",Out2)
+outliers_market_segment_type = (dfHotel2['market_segment_type'] < Q1 - 1.5 * IQR) | (dfHotel2['market_segment_type'] > Q3 + 1.5 * IQR)
+# Filter the DataFrame to get the actual outlier values
+outliers_market_segment_type  = dfHotel2.loc[outliers_market_segment_type, 'market_segment_type']
+# Display the outlier values
+print("dfHotel2 :", outliers_market_segment_type)
+```
+
+```{python}
+# check the columns we can see outliers
+toll_dfHotel2 = dfHotel2.loc[dfHotel2['market_segment_type']>2.5]
+
+toll_dfHotel2.shape
+
+dfHotel2 = dfHotel2.loc[dfHotel2['market_segment_type'] <= 2.5]
+dfHotel2.shape
+
+```
+
+
+** Bar charts for discrete and categorical variables ***
+
+To find the outliers of  discrete and categorical variables we need to find the type of variables whether they are integer or objects . 
+For each discrete variable (including Booleans), we used bar charts highlighting the target variable for each value. 
+
+```{python}
+int_dfHotel2 = dfHotel2.select_dtypes(include='integer')
+int_dfHotel2.columns
+```
+```{python}
+
+# Checking the linear correlation of variables
+int_dfHotel2=int_dfHotel2[[ 
+'no_of_adults', 'no_of_children', 'no_of_weekend_nights',
+       'no_of_week_nights', 'type_of_meal_plan', 'required_car_parking_space',
+       'lead_time', 'arrival_year', 'arrival_month', 'arrival_date',
+       'market_segment_type', 'repeated_guest', 'no_of_previous_cancellations',
+       'no_of_previous_bookings_not_canceled', 'no_of_special_requests',
+       'booking_status']]
+corr_matrix = int_dfHotel2.corr()
+corr_matrix['booking_status'].sort_values(ascending = False)
+```
+
+```{python}
+#| label: Get correlation visually1
+plt.figure(figsize = (19,10))
+sns.heatmap(int_dfHotel2[['no_of_adults', 'no_of_children', 'no_of_weekend_nights',
+       'no_of_week_nights', 'type_of_meal_plan', 'required_car_parking_space',
+       'lead_time', 'arrival_year', 'arrival_month', 'arrival_date',
+       'market_segment_type', 'repeated_guest', 'no_of_previous_cancellations',
+       'no_of_previous_bookings_not_canceled', 'no_of_special_requests',
+       ]].corr(), cmap="YlGnBu",
+            annot=True)
+```
