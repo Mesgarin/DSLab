@@ -41,13 +41,37 @@ warnings.filterwarnings("ignore")
 To use data, we need to import them and read the data. In this case, our data is CSV files, and it is in the folder whose name is data.
 ```{python}
 #| label: data-import
-df = pd.read_csv('data\HotelReservations.csv')
-df.head() 
+dfHotel = pd.read_csv('data\HotelReservations.csv')
+dfHotel.head() 
+```
+
+```{python}
+#| label: data-import
+dfCVD = pd.read_csv('data\CVD_cleaned.csv')
+dfCVD.head() 
+```
+
+```{python}
+#| label: data-import
+dfweatherAUS = pd.read_csv('data\weatherAUS.csv')
+dfweatherAUS.head() 
+```
+
+
+```{python}
+#| label: show how many rows and coloumn in data set 
+dfHotel.shape
+```
+
+
+```{python}
+#| label: show how many rows and coloumn in data set 
+dfCVD.shape
 ```
 
 ```{python}
 #| label: show how many rows and coloumn in data set 
-df.shape
+dfweatherAUS.shape
 ```
 
 With this function, we check all culmns and their type. 
@@ -96,15 +120,12 @@ The detail of these values is given in the following tables:
  ```
 ```{python}
 # Checking the negative values of no_of_adults
-df['no_of_adults'].value_counts()
-#df['no_of_children'].value_counts()
-#df['no_of_weekend_nights'].value_counts()
+for column in df.columns:
+    print(df[column].value_counts())
 ```
 
 
 As shown above, there are no undefined values in each variables. Therefore, we omit no cases.
-
-
 
 ### 4.4 Checking the distribution of each variable 
 Checking the distribution of each variable involves examining the spread and pattern of values within individual columns or features in the dataset. Understanding the distribution helps you gain insights into the central tendencies, variability, and shape of the data. This is crucial for making informed decisions during data analysis and modeling. Common statistical measures used to describe the distribution include mean, median, and standard deviation.
@@ -125,7 +146,7 @@ df_numeric.shape
 
 # finding zero variance variables
 selector_vr= VarianceThreshold(threshold=0)
-#selector_vr.fit_transform(df_numeric)
+selector_vr.fit_transform(df_numeric)
 #selector_vr.get_support(indices=True)
 ```
 
