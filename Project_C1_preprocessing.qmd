@@ -1,7 +1,7 @@
 ---
-title: "Hotel Reservation"
+title: "Project_C1_preprocessing"
 author: 
-  - Nastaran  Mesgari
+  Group 1
 
 
 abstract: " "

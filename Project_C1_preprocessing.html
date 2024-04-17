@@ -57,16 +57,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="Hotel_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Hotel_files/libs/quarto-html/quarto.js"></script>
-<script src="Hotel_files/libs/quarto-html/popper.min.js"></script>
-<script src="Hotel_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Hotel_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Hotel_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Hotel_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Hotel_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Hotel_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Hotel_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="Project_C1_preprocessing_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Project_C1_preprocessing_files/libs/quarto-html/quarto.js"></script>
+<script src="Project_C1_preprocessing_files/libs/quarto-html/popper.min.js"></script>
+<script src="Project_C1_preprocessing_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Project_C1_preprocessing_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Project_C1_preprocessing_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Project_C1_preprocessing_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Project_C1_preprocessing_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Project_C1_preprocessing_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Project_C1_preprocessing_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-recognition" class="level2">
 <h2 class="anchored" data-anchor-id="data-recognition">3. Data Recognition</h2>
 <p>As the first step, we need to import the main libraries to start analysis.</p>
-<div id="import-libraries" class="cell" data-execution_count="1">
+<div id="import-libraries" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># importing main libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -122,10 +122,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="loading-data" class="level2">
 <h2 class="anchored" data-anchor-id="loading-data">3.1 Loading Data</h2>
 <p>To use data, we need to import them and read the data. In this case, our data is CSV files, and it is in the folder whose name is data.</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dfHotel <span class="op">=</span> pd.read_csv(<span class="st">'data\HotelReservations.csv'</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dfHotel.head() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="data-import" class="cell-output cell-output-display" data-execution_count="2">
+<div id="data-import-2" class="cell-output cell-output-display" data-execution_count="39">
 <div>
 
 
@@ -271,10 +271,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dfCVD <span class="op">=</span> pd.read_csv(<span class="st">'data\CVD_cleaned.csv'</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dfCVD.head() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="data-import3" class="cell-output cell-output-display" data-execution_count="3">
+<div id="data-import-3" class="cell-output cell-output-display" data-execution_count="40">
 <div>
 
 
@@ -420,10 +420,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dfweatherAUS <span class="op">=</span> pd.read_csv(<span class="st">'data\weatherAUS.csv'</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dfweatherAUS.head() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="data-import2" class="cell-output cell-output-display" data-execution_count="4">
+<div id="data-import1" class="cell-output cell-output-display" data-execution_count="41">
 <div>
 
 
@@ -582,26 +582,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dfHotel.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="show-how-many-rows-and-coloumn-in-data-set1" class="cell-output cell-output-display" data-execution_count="5">
+<div id="show-how-many-rows-and-coloumn-in-data-set1" class="cell-output cell-output-display" data-execution_count="42">
 <pre><code>(36275, 19)</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dfCVD.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="show-how-many-rows-and-coloumn-in-data-set2" class="cell-output cell-output-display" data-execution_count="6">
+<div id="show-how-many-rows-and-coloumn-in-data-set2" class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>(308854, 19)</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dfweatherAUS.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="show-how-many-rows-and-coloumn-in-data-set3" class="cell-output cell-output-display" data-execution_count="7">
+<div id="show-how-many-rows-and-coloumn-in-data-set3" class="cell-output cell-output-display" data-execution_count="44">
 <pre><code>(145460, 23)</code></pre>
 </div>
 </div>
 <p>With this function, we check all culmns and their type.</p>
-<div id="get-informaion" class="cell" data-execution_count="8">
+<div id="get-informaion" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># getting data on dataset</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dfHotel.info()</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>dfCVD.info()</span>
@@ -701,7 +701,7 @@ memory usage: 25.5+ MB</code></pre>
 <section id="checking-missing-values" class="level4">
 <h4 class="anchored" data-anchor-id="checking-missing-values">4.2. Checking missing values</h4>
 <p>In most cases, we do not get complete datasets. They either have some missing values in the rows and columns. However, fortunately, we check whether the dataset has any missing values or not, and as you can see in the output of the block below, there is no missing value in this dataset</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows with null values</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>dfHotel <span class="op">=</span>dfHotel.dropna()</span>
@@ -804,7 +804,7 @@ Shape of df2: (308854, 19)
 Shape of df3: (36275, 19)</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking for missing values in the entire dataset</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> [dfweatherAUS, dfCVD, dfHotel]</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -886,9 +886,9 @@ dtype: int64</code></pre>
 <section id="checking-for-garbage-values" class="level4">
 <h4 class="anchored" data-anchor-id="checking-for-garbage-values">4.3 Checking for garbage values</h4>
 <p>Garbage value is generally a term meaning that the value in a variable which means nothing. By checking the statistical information of the data, some variables have negative values, and some have 0 values which are not compatible with the definition (corresponding to the dataset). The detail of these values is given in the following tables: *** Negative Values and Ziro for deleting *** Using this code, we check the data for minus and zero values if they are not compatible by the meaning they have.</p>
-<p>::: {.cell execution_count=11} <code>{.python .cell-code}  # get name the columns  df.columns</code></p>
-<p>::: {.cell-output .cell-output-display execution_count=11} <code>Index(['Booking_ID', 'no_of_adults', 'no_of_children', 'no_of_weekend_nights',         'no_of_week_nights', 'type_of_meal_plan', 'required_car_parking_space',         'room_type_reserved', 'lead_time', 'arrival_year', 'arrival_month',         'arrival_date', 'market_segment_type', 'repeated_guest',         'no_of_previous_cancellations', 'no_of_previous_bookings_not_canceled',         'avg_price_per_room', 'no_of_special_requests', 'booking_status'],        dtype='object')</code> ::: :::</p>
-<div class="cell" data-execution_count="12">
+<p>::: {.cell vscode=‘{“languageId”:“python”}’ execution_count=48} <code>{.python .cell-code}  # get name the columns  df.columns</code></p>
+<p>::: {.cell-output .cell-output-display execution_count=48} <code>Index(['Booking_ID', 'no_of_adults', 'no_of_children', 'no_of_weekend_nights',         'no_of_week_nights', 'type_of_meal_plan', 'required_car_parking_space',         'room_type_reserved', 'lead_time', 'arrival_year', 'arrival_month',         'arrival_date', 'market_segment_type', 'repeated_guest',         'no_of_previous_cancellations', 'no_of_previous_bookings_not_canceled',         'avg_price_per_room', 'no_of_special_requests', 'booking_status'],        dtype='object')</code> ::: :::</p>
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking the negative values of no_of_adults</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> [dfweatherAUS, dfCVD, dfHotel]</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1756,7 +1756,7 @@ Name: count, dtype: int64</code></pre>
 <section id="checking-the-distribution-of-each-variable" class="level3">
 <h3 class="anchored" data-anchor-id="checking-the-distribution-of-each-variable">4.4 Checking the distribution of each variable</h3>
 <p>Checking the distribution of each variable involves examining the spread and pattern of values within individual columns or features in the dataset. Understanding the distribution helps you gain insights into the central tendencies, variability, and shape of the data. This is crucial for making informed decisions during data analysis and modeling. Common statistical measures used to describe the distribution include mean, median, and standard deviation. .</p>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check the distribution for each column</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> {<span class="st">'dfweatherAUS'</span>: dfweatherAUS, <span class="st">'dfCVD'</span>: dfCVD, <span class="st">'dfHotel'</span>: dfHotel}</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1853,7 +1853,7 @@ no_of_special_requests                   0.0     0.00     1.0     5.0  </code></
 </div>
 </div>
 <p>Using this code, the most important statistical information of each numeric predictiors are calculated.</p>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> {<span class="st">'dfweatherAUS'</span>: dfweatherAUS, <span class="st">'dfCVD'</span>: dfCVD, <span class="st">'dfHotel'</span>: dfHotel}</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, df <span class="kw">in</span> dataframes.items():</span>
@@ -1865,7 +1865,7 @@ Shape of numeric columns in DataFrame dfCVD: (308854, 7)
 Shape of numeric columns in DataFrame dfHotel: (36275, 14)</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># finding zero variance variables</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> {<span class="st">'dfweatherAUS'</span>: dfweatherAUS, <span class="st">'dfCVD'</span>: dfCVD, <span class="st">'dfHotel'</span>: dfHotel}</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1881,7 +1881,7 @@ Transformed data shape for DataFrame dfHotel: (36275, 14)</code></pre>
 </div>
 </div>
 <p>If there are variables with standard deviation near the zero , we can delete it .</p>
-<div class="cell" data-execution_count="16">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> {<span class="st">'dfweatherAUS'</span>: dfweatherAUS, <span class="st">'dfCVD'</span>: dfCVD, <span class="st">'dfHotel'</span>: dfHotel}</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, df <span class="kw">in</span> dataframes.items():</span>
@@ -2016,7 +2016,7 @@ Index(['Booking_ID', 'no_of_adults', 'no_of_children', 'no_of_weekend_nights',
 </div>
 <p>Now, we check the categorical variables and their categories to show the frequency of each values.</p>
 <p>Histograms are useful for analyzing the frequency distribution of different values for each variable. In each histogram, the horizontal axis represents the variable values, and the vertical axis indicates the frequency or the number of times each value appears in the data. The height of each column reflects the frequency or the number of samples with a specific value in that interval.</p>
-<div class="cell" data-execution_count="17">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the columns you want to include in the analysis - dfHotel</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>selected_columns_dfHotel <span class="op">=</span> [ <span class="st">'no_of_adults'</span>, <span class="st">'no_of_children'</span>, <span class="st">'no_of_weekend_nights'</span>,</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>       <span class="st">'no_of_week_nights'</span>, <span class="st">'type_of_meal_plan'</span>, <span class="st">'required_car_parking_space'</span>,</span>
@@ -2033,10 +2033,10 @@ Index(['Booking_ID', 'no_of_adults', 'no_of_children', 'no_of_weekend_nights',
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Histograms of Selected Variables (dfHotel)'</span>)</span>
 <span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Hotel_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+<p><img src="Project_C1_preprocessing_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the columns you want to include in the analysis - dfweatherAUS</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>selected_columns_dfweatherAUS <span class="op">=</span> [ <span class="st">'Date'</span>, <span class="st">'Location'</span>, <span class="st">'MinTemp'</span>, <span class="st">'MaxTemp'</span>, <span class="st">'Rainfall'</span>, <span class="st">'Evaporation'</span>,</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Sunshine'</span>, <span class="st">'WindGustDir'</span>, <span class="st">'WindGustSpeed'</span>, <span class="st">'WindDir9am'</span>, <span class="st">'WindDir3pm'</span>,</span>
@@ -2052,10 +2052,10 @@ Index(['Booking_ID', 'no_of_adults', 'no_of_children', 'no_of_weekend_nights',
 <span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Histograms of Selected Variables (dfweatherAUS)'</span>)</span>
 <span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Hotel_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+<p><img src="Project_C1_preprocessing_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="19">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the columns you want to include in the analysis - dfCVD</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>selected_columns_dfCVD <span class="op">=</span> [ <span class="st">'General_Health'</span>, <span class="st">'Checkup'</span>, <span class="st">'Exercise'</span>, <span class="st">'Heart_Disease'</span>, <span class="st">'Skin_Cancer'</span>,</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Other_Cancer'</span>, <span class="st">'Depression'</span>, <span class="st">'Diabetes'</span>, <span class="st">'Arthritis'</span>, <span class="st">'Sex'</span>,</span>
@@ -2071,10 +2071,10 @@ Index(['Booking_ID', 'no_of_adults', 'no_of_children', 'no_of_weekend_nights',
 <span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Histograms of Selected Variables (dfCVD)'</span>)</span>
 <span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Hotel_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+<p><img src="Project_C1_preprocessing_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="20">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Displaying some statistics about categorical data</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> {<span class="st">'dfweatherAUS'</span>: dfweatherAUS, <span class="st">'dfCVD'</span>: dfCVD, <span class="st">'dfHotel'</span>: dfHotel}</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2132,9 +2132,9 @@ freq            24390  </code></pre>
 <section id="transforming-the-categorical-variables" class="level4">
 <h4 class="anchored" data-anchor-id="transforming-the-categorical-variables">4.5.1 Transforming the categorical variables</h4>
 <p>In this step, we numerized object variables . As it mentioned earlier, booking_status and target has two object:Not_Canceled , Canceled . For efficient use in the models, we convert Canceled to 1 and Not_Canceled to 0. If we have a column that is object or if we have Boolean, we can convert them to integer.</p>
-<div class="cell" data-execution_count="21">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>dfCVD.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="58">
 <div>
 
 
@@ -2238,9 +2238,9 @@ freq            24390  </code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="22">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="59">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>dfweatherAUS.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="59">
 <div>
 
 
@@ -2425,10 +2425,10 @@ freq            24390  </code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="23">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="60">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>dfHotel.describe()</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>dfHotel.describe(include<span class="op">=</span><span class="st">'object'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="60">
 <div>
 
 
@@ -2483,7 +2483,7 @@ freq            24390  </code></pre>
 </div>
 </div>
 <p>????</p>
-<div class="cell" data-execution_count="24">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>dataframes <span class="op">=</span> {<span class="st">'dfweatherAUS'</span>: dfweatherAUS, <span class="st">'dfCVD'</span>: dfCVD, <span class="st">'dfHotel'</span>: dfHotel}</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, df <span class="kw">in</span> dataframes.items():</span>
@@ -2559,7 +2559,7 @@ Unique values for column 'booking_status':
 ['Not_Canceled' 'Canceled']</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="25">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#using Map Function</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>dfHotel2 <span class="op">=</span> dfHotel.copy()</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>columns_to_drop <span class="op">=</span> [<span class="st">'Booking_ID'</span>,<span class="st">'room_type_reserved'</span>]</span>
@@ -2591,7 +2591,7 @@ Unique values for column 'booking_status':
 <section id="finding-outliers-dummy-variable" class="level3">
 <h3 class="anchored" data-anchor-id="finding-outliers-dummy-variable">5.1 Finding outliers , dummy variable</h3>
 <p>Using of outlier detection methods depends on the type of data and the aim of analysis. However, generally, these methods are commonly applied to numerical and continuous variables. The reason for this is that the concept of outlier detection is more definable in continuous variables, and statistical measures such as mean, standard deviation, box plots, can easily be employed for detecting them. For detecting outliers of discrete and categorical variables, we need to find whether types of variables are integer or objects. We find the outliers, the Q1, Q3 and compare it with data and count how much of each independent variable out of this range and then recognize them . For each integer variable, we use boxplot and histogram for visualization. The plots for each variables are as follows: Box plot is oneof best chart to show distribution of data points. As the plot shows below,</p>
-<div class="cell" data-execution_count="26">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">3</span>))</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">121</span>)</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>plt.hist(np.array(dfHotel2[<span class="st">'booking_status'</span>]) , density<span class="op">=</span><span class="va">True</span> , bins<span class="op">=</span><span class="dv">50</span>, edgecolor<span class="op">=</span><span class="st">'black'</span> ,facecolor<span class="op">=</span><span class="st">'pink'</span>, alpha<span class="op">=</span><span class="fl">0.75</span>)</span>
@@ -2602,10 +2602,10 @@ Unique values for column 'booking_status':
 <span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'booking_status'</span>)</span>
 <span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Hotel_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
+<p><img src="Project_C1_preprocessing_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="27">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate IQR and show thw outliers</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>Q1 <span class="op">=</span> dfHotel2[<span class="st">'booking_status'</span>].quantile(<span class="fl">0.25</span>)</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>Q3 <span class="op">=</span> dfHotel2[<span class="st">'booking_status'</span>].quantile(<span class="fl">0.75</span>)</span>
@@ -2632,7 +2632,7 @@ dfHotel2 : Series([], Name: booking_status, dtype: int32)</code></pre>
 </div>
 </div>
 <p>…………………………</p>
-<div class="cell" data-execution_count="28">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="65">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">3</span>))</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">121</span>)</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>plt.hist(np.array(dfHotel2[<span class="st">'market_segment_type'</span>]) , density<span class="op">=</span><span class="va">True</span> , bins<span class="op">=</span><span class="dv">50</span>, edgecolor<span class="op">=</span><span class="st">'black'</span> ,facecolor<span class="op">=</span><span class="st">'pink'</span>, alpha<span class="op">=</span><span class="fl">0.75</span>)</span>
@@ -2643,10 +2643,10 @@ dfHotel2 : Series([], Name: booking_status, dtype: int32)</code></pre>
 <span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'market_segment_type'</span>)</span>
 <span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Hotel_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
+<p><img src="Project_C1_preprocessing_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="29">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="66">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate IQR and show thw outliers</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>Q1 <span class="op">=</span> dfHotel2[<span class="st">'market_segment_type'</span>].quantile(<span class="fl">0.25</span>)</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>Q3 <span class="op">=</span> dfHotel2[<span class="st">'market_segment_type'</span>].quantile(<span class="fl">0.75</span>)</span>
@@ -2683,7 +2683,7 @@ dfHotel2 : 27       3
 Name: market_segment_type, Length: 516, dtype: int32</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="30">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="67">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check the columns we can see outliers</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>toll_dfHotel2 <span class="op">=</span> dfHotel2.loc[dfHotel2[<span class="st">'market_segment_type'</span>]<span class="op">&gt;</span><span class="fl">2.5</span>]</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2691,16 +2691,16 @@ Name: market_segment_type, Length: 516, dtype: int32</code></pre>
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>dfHotel2 <span class="op">=</span> dfHotel2.loc[dfHotel2[<span class="st">'market_segment_type'</span>] <span class="op">&lt;=</span> <span class="fl">2.5</span>]</span>
 <span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>dfHotel2.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div class="cell-output cell-output-display" data-execution_count="67">
 <pre><code>(35759, 17)</code></pre>
 </div>
 </div>
 <p>** Bar charts for discrete and categorical variables ***</p>
-<p>To find the outliers of discrete and categorical variables we need to find the type of variables whether they are integer or objects . For each discrete variable (including Booleans), we used bar charts highlighting the booking variable for each value.</p>
-<div class="cell" data-execution_count="31">
+<p>To find the outliers of discrete and categorical variables we need to find the type of variables whether they are integer or objects . For each discrete variable (including Booleans), we used bar charts highlighting the target variable for each value.</p>
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="68">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>int_dfHotel2 <span class="op">=</span> dfHotel2.select_dtypes(include<span class="op">=</span><span class="st">'integer'</span>)</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>int_dfHotel2.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="cell-output cell-output-display" data-execution_count="68">
 <pre><code>Index(['no_of_adults', 'no_of_children', 'no_of_weekend_nights',
        'no_of_week_nights', 'type_of_meal_plan', 'required_car_parking_space',
        'lead_time', 'arrival_year', 'arrival_month', 'arrival_date',
@@ -2710,7 +2710,7 @@ Name: market_segment_type, Length: 516, dtype: int32</code></pre>
       dtype='object')</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="32">
+<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="69">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking the linear correlation of variables</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>int_dfHotel2<span class="op">=</span>int_dfHotel2[[ </span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="st">'no_of_adults'</span>, <span class="st">'no_of_children'</span>, <span class="st">'no_of_weekend_nights'</span>,</span>
@@ -2721,7 +2721,7 @@ Name: market_segment_type, Length: 516, dtype: int32</code></pre>
 <span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>       <span class="st">'booking_status'</span>]]</span>
 <span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="op">=</span> int_dfHotel2.corr()</span>
 <span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>corr_matrix[<span class="st">'booking_status'</span>].sort_values(ascending <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div class="cell-output cell-output-display" data-execution_count="69">
 <pre><code>booking_status                          1.000000
 lead_time                               0.436424
 arrival_year                            0.178701
@@ -2741,7 +2741,7 @@ no_of_special_requests                 -0.254448
 Name: booking_status, dtype: float64</code></pre>
 </div>
 </div>
-<div id="get-correlation-visually1" class="cell" data-execution_count="33">
+<div id="get-correlation-visually1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="70">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">19</span>,<span class="dv">10</span>))</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>sns.heatmap(int_dfHotel2[[<span class="st">'no_of_adults'</span>, <span class="st">'no_of_children'</span>, <span class="st">'no_of_weekend_nights'</span>,</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>       <span class="st">'no_of_week_nights'</span>, <span class="st">'type_of_meal_plan'</span>, <span class="st">'required_car_parking_space'</span>,</span>
@@ -2750,11 +2750,11 @@ Name: booking_status, dtype: float64</code></pre>
 <span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>       <span class="st">'no_of_previous_bookings_not_canceled'</span>, <span class="st">'no_of_special_requests'</span>,</span>
 <span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>       ]].corr(), cmap<span class="op">=</span><span class="st">"YlGnBu"</span>,</span>
 <span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>            annot<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="get-correlation-visually1-1" class="cell-output cell-output-display" data-execution_count="33">
+<div id="get-correlation-visually1-1" class="cell-output cell-output-display" data-execution_count="70">
 <pre><code>&lt;Axes: &gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="Hotel_files/figure-html/get-correlation-visually1-output-2.png" id="get-correlation-visually1-2" class="img-fluid"></p>
+<p><img src="Project_C1_preprocessing_files/figure-html/get-correlation-visually1-output-2.png" id="get-correlation-visually1-2" class="img-fluid"></p>
 </div>
 </div>
 </section>
